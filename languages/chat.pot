@@ -1,0 +1,425 @@
+# Translation of the WordPress plugin Chat 1.0.2 by S H Mohanjith (Incsub).
+# Copyright (C) 2011 S H Mohanjith (Incsub)
+# This file is distributed under the same license as the Chat package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Chat 1.0.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/chat\n"
+"POT-Creation-Date: 2011-01-02 10:38+0530\n"
+"PO-Revision-Date: 2011-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: chat.php:376
+msgid "Chat Plugin Options"
+msgstr ""
+
+#. #-#-#-#-#  chat.pot (Chat 1.0.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: chat.php:376 chat.php:1637
+msgid "Chat"
+msgstr ""
+
+#: chat.php:589 chat.php:849 chat.php:1060
+msgid "Play sound when a new message is received?"
+msgstr ""
+
+#: chat.php:601 chat.php:860 chat.php:1071
+msgid "Display the user's avatar with the message?"
+msgstr ""
+
+#: chat.php:612 chat.php:871 chat.php:1082
+msgid "Display emoticons bar?"
+msgstr ""
+
+#: chat.php:623 chat.php:882 chat.php:1093
+msgid "Display date the message was sent?"
+msgstr ""
+
+#: chat.php:634 chat.php:893 chat.php:1104
+msgid "Display the time  the message was sent?"
+msgstr ""
+
+#: chat.php:643 chat.php:902 chat.php:1113
+msgid "Dimensions of the chat box"
+msgstr ""
+
+#: chat.php:660 chat.php:917 chat.php:1137
+msgid "Chat box background color"
+msgstr ""
+
+#: chat.php:669
+msgid "Date background color"
+msgstr ""
+
+#: chat.php:678 chat.php:935 chat.php:1155
+msgid "Name background color"
+msgstr ""
+
+#: chat.php:687 chat.php:944 chat.php:1164
+msgid "Text background color"
+msgstr ""
+
+#: chat.php:706 chat.php:962 chat.php:1182
+msgid "Chat box font"
+msgstr ""
+
+#: chat.php:718 chat.php:974 chat.php:1193
+msgid "Chat box font size"
+msgstr ""
+
+#: chat.php:737 chat.php:991 chat.php:1210
+msgid "Log chat messages?"
+msgstr ""
+
+#: chat.php:748 chat.php:1002 chat.php:1221
+msgid "Display chat logs?"
+msgstr ""
+
+#: chat.php:762 chat.php:1014 chat.php:1233
+msgid "Current user"
+msgstr ""
+
+#: chat.php:764 chat.php:1016 chat.php:1235
+msgid "Network user"
+msgstr ""
+
+#: chat.php:766 chat.php:1018 chat.php:1237
+msgid "Public user"
+msgstr ""
+
+#: chat.php:768 chat.php:1019 chat.php:1238
+msgid "Twitter"
+msgstr ""
+
+#: chat.php:771 chat.php:1020 chat.php:1239
+msgid "Facebook"
+msgstr ""
+
+#: chat.php:774 chat.php:1022 chat.php:1241
+msgid "Authentication methods users can use"
+msgstr ""
+
+#: chat.php:822 chat.php:1468
+msgid "Chat Settings"
+msgstr ""
+
+#: chat.php:828
+msgid "In post chat options"
+msgstr ""
+
+#: chat.php:829
+msgid "Bottom corner chat"
+msgstr ""
+
+#: chat.php:830
+msgid "Twitter API"
+msgstr ""
+
+#: chat.php:831
+msgid "Facebook API"
+msgstr ""
+
+#: chat.php:832
+msgid "Advanced"
+msgstr ""
+
+#: chat.php:838 chat.php:1048
+msgid "General"
+msgstr ""
+
+#: chat.php:842 chat.php:1053
+msgid "Sound"
+msgstr ""
+
+#: chat.php:845 chat.php:856 chat.php:867 chat.php:878 chat.php:889
+#: chat.php:987 chat.php:998 chat.php:1038 chat.php:1056 chat.php:1067
+#: chat.php:1078 chat.php:1089 chat.php:1100 chat.php:1206 chat.php:1217
+#: chat.php:1475
+msgid "Enabled"
+msgstr ""
+
+#: chat.php:846 chat.php:857 chat.php:868 chat.php:879 chat.php:890
+#: chat.php:988 chat.php:999 chat.php:1039 chat.php:1057 chat.php:1068
+#: chat.php:1079 chat.php:1090 chat.php:1101 chat.php:1207 chat.php:1218
+#: chat.php:1476
+msgid "Disabled"
+msgstr ""
+
+#: chat.php:853 chat.php:1064
+msgid "Avatar"
+msgstr ""
+
+#: chat.php:864 chat.php:1075
+msgid "Emoticons"
+msgstr ""
+
+#: chat.php:875 chat.php:1086
+msgid "Show date"
+msgstr ""
+
+#: chat.php:886 chat.php:1097
+msgid "Show time"
+msgstr ""
+
+#: chat.php:897 chat.php:1108
+msgid "Dimensions"
+msgstr ""
+
+#: chat.php:908 chat.php:1119
+msgid "Colors"
+msgstr ""
+
+#: chat.php:912 chat.php:1132
+msgid "Background"
+msgstr ""
+
+#: chat.php:921 chat.php:1141
+msgid "Date"
+msgstr ""
+
+#: chat.php:926 chat.php:1146
+msgid "Date and time background color"
+msgstr ""
+
+#: chat.php:930 chat.php:1150 chat.php:1763
+msgid "Name"
+msgstr ""
+
+#: chat.php:939 chat.php:1159
+msgid "Text"
+msgstr ""
+
+#: chat.php:950 chat.php:1170
+msgid "Fonts"
+msgstr ""
+
+#: chat.php:954 chat.php:1174
+msgid "Font"
+msgstr ""
+
+#: chat.php:966 chat.php:1186
+msgid "Font size"
+msgstr ""
+
+#: chat.php:980 chat.php:1199
+msgid "Logs"
+msgstr ""
+
+#: chat.php:984 chat.php:1203
+msgid "Creation"
+msgstr ""
+
+#: chat.php:995 chat.php:1214
+msgid "Display"
+msgstr ""
+
+#: chat.php:1008 chat.php:1227
+msgid "Authentication"
+msgstr ""
+
+#: chat.php:1012 chat.php:1231
+msgid "Login options"
+msgstr ""
+
+#: chat.php:1031
+msgid "Main"
+msgstr ""
+
+#: chat.php:1035
+msgid "Show"
+msgstr ""
+
+#: chat.php:1042
+msgid "Display bottom corner chat?"
+msgstr ""
+
+#: chat.php:1123
+msgid "Border"
+msgstr ""
+
+#: chat.php:1128
+msgid "Chat box border color"
+msgstr ""
+
+#: chat.php:1250
+msgid "@Anywhere API key"
+msgstr ""
+
+#: chat.php:1256
+#, php-format
+msgid ""
+"Register this site as an application on Twitter's <a target=\"_blank\" href="
+"\"%s\">app registration page</a>"
+msgstr ""
+
+#: chat.php:1257
+msgid "If you're not logged in, you can use your Twitter username and password"
+msgstr ""
+
+#: chat.php:1258
+msgid ""
+"Your Application's Name will be what shows up after \"via\" in your twitter "
+"stream"
+msgstr ""
+
+#: chat.php:1259
+msgid "Application Type should be set on Browser"
+msgstr ""
+
+#: chat.php:1260
+msgid "The callback URL should be"
+msgstr ""
+
+#: chat.php:1261
+msgid ""
+"Once you have registered your site as an application, you will be provided "
+"with @Anywhere API key."
+msgstr ""
+
+#: chat.php:1262 chat.php:1282
+msgid "Copy and paste them to the fields on the left"
+msgstr ""
+
+#: chat.php:1272
+msgid "Application id"
+msgstr ""
+
+#: chat.php:1278
+#, php-format
+msgid ""
+"Register this site as an application on Facebook's <a target=\"_blank\" href="
+"\"%s\">app registration page</a>"
+msgstr ""
+
+#: chat.php:1279
+msgid ""
+"If you're not logged in, you can use your Facebook username and password"
+msgstr ""
+
+#: chat.php:1280
+msgid "The site URL should be"
+msgstr ""
+
+#: chat.php:1281
+msgid ""
+"Once you have registered your site as an application, you will be provided "
+"with a Application ID and a Application secret."
+msgstr ""
+
+#: chat.php:1288
+msgid "Application secret"
+msgstr ""
+
+#: chat.php:1299
+msgid "Interval"
+msgstr ""
+
+#: chat.php:1314
+msgid "Save Changes"
+msgstr ""
+
+#: chat.php:1352
+msgid "Sign out of Facebook"
+msgstr ""
+
+#: chat.php:1353
+msgid "Sign out of Twitter"
+msgstr ""
+
+#: chat.php:1354
+msgid "Please wait..."
+msgstr ""
+
+#: chat.php:1356
+msgid "Minimize"
+msgstr ""
+
+#: chat.php:1358 chat.php:1638
+msgid "Maximize"
+msgstr ""
+
+#: chat.php:1472
+msgid "Chat sounds"
+msgstr ""
+
+#: chat.php:1637
+msgid "Click here to chat!"
+msgstr ""
+
+#: chat.php:1721
+msgid "Message"
+msgstr ""
+
+#: chat.php:1740
+msgid "\"Enter\" to send"
+msgstr ""
+
+#: chat.php:1740
+msgid "Place code in between code tags"
+msgstr ""
+
+#: chat.php:1742
+msgid "Logout"
+msgstr ""
+
+#: chat.php:1749
+msgid "Archive"
+msgstr ""
+
+#: chat.php:1751
+msgid "Clear"
+msgstr ""
+
+#: chat.php:1760
+msgid "To get started just enter your email address and desired username"
+msgstr ""
+
+#: chat.php:1764
+msgid "E-mail"
+msgstr ""
+
+#: chat.php:1765
+msgid "Login"
+msgstr ""
+
+#: chat.php:1781
+msgid "You must be logged in to participate in chats"
+msgstr ""
+
+#: chat.php:1793
+msgid "Chat Logs"
+msgstr ""
+
+#: chat.php:2103
+msgid ""
+"Please install the latest version of <a href=\"http://premium.wpmudev.org/"
+"project/update-notifications/\" title=\"Download Now &raquo;\">our free "
+"Update Notifications plugin</a> which helps you stay up-to-date with the "
+"most stable, secure versions of WPMU DEV themes and plugins. <a href="
+"\"http://premium.wpmudev.org/wpmu-dev/update-notifications-plugin-"
+"information/\">More information &raquo;</a>"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://premium.wpmudev.org/project/wordpress-chat-plugin"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Provides you with a fully featured chat area either in a"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "S H Mohanjith (Incsub)"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://premium.wpmudev.org"
+msgstr ""
