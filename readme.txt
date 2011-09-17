@@ -54,6 +54,9 @@ Up the version to work with update plugin.
 
 == ChangeLog ==
 
+= 1.0.7 =
+* Adding update code
+
 = 1.0.6 =
 * Allow multiple links to be in the chat message
 
