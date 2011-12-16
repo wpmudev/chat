@@ -388,7 +388,7 @@ if (!class_exists('Chat')) {
 		 * @see		http://codex.wordpress.org/Adding_Administration_Menus
 		 */
 		function admin_menu() {
-			add_options_page(__('Chat Plugin Options', $this->translation_domain), __('Chat', $this->translation_domain), 8, 'chat', array(&$this, 'plugin_options'));
+			add_options_page(__('Chat Plugin Options', $this->translation_domain), __('Chat', $this->translation_domain), 'manage_options', 'chat', array(&$this, 'plugin_options'));
 		}
 		
 		/**
