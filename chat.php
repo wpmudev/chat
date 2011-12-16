@@ -1427,7 +1427,7 @@ if (!class_exists('Chat')) {
 				$vip = 'no';
 			}
 					
-			$chat_sounds = get_usermeta($current_user->ID, 'chat_sounds', 'enabled');
+			$chat_sounds = get_user_meta($current_user->ID, 'chat_sounds', 'enabled');
 			if (empty($chat_sounds)) {
 				$chat_sounds = $this->get_option('sounds', "enabled");
 			}
@@ -1554,7 +1554,7 @@ if (!class_exists('Chat')) {
 				$uid = $current_user->ID;
 			}
 			
-			$chat_sounds = get_usermeta( $uid, 'chat_sounds' );
+			$chat_sounds = get_user_meta( $uid, 'chat_sounds' );
 			?>
 		    <h3><?php _e('Chat Settings', $this->translation_domain); ?></h3>
 		    
