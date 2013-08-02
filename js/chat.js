@@ -91,7 +91,17 @@ if (chat_localized) {
 					if ( updateContent !== '' ) {
 					    jQuery('#chat-area-'+pid).append(jQuery(updateContent.replace(currentContent[pid], '')));
 					    currentContent[pid] = updateContent;
-					    jQuery('#chat-area-'+pid).animate({ scrollTop: jQuery('#chat-area-'+pid).attr("scrollHeight") }, 2000);
+						
+						var container 			= jQuery('#chat-area-'+pid);						
+						var row					= jQuery('div.row', container).last();
+						if (row.length) {
+							var r_position			= row.position();
+							var c_scrollTop 		= container.scrollTop()+r_position.top;
+
+							jQuery('#chat-area-'+pid).animate({ scrollTop: c_scrollTop }, 1000);
+						}
+					    //jQuery('#chat-area-'+pid).animate({ scrollTop: jQuery('#chat-area-'+pid).attr("scrollHeight") }, 2000);
+					
 					    if ( sounds !== 'disabled' && chat_localized['sound_'+pid] !== 'disabled' && pingSound ) {
 						pingSound.play('notify');
 					    }

@@ -1,21 +1,20 @@
 <?php
 /*
- Plugin Name: Chat Lite
- Plugin URI: http://premium.wpmudev.org/project/wordpress-chat-plugin
- Description: Provides you with a fully featured chat area either in a
-post, page or bottom corner of your site - once activated configure <a
-href="options-general.php?page=chat">here</a> and drop into a post or
-page by clicking on the new chat icon in your post/page editor.
- Author: S H Mohanjith (Incsub)
- WDP ID: 223
- Version: 1.0.7
- Stable tag: trunk
- Author URI: http://premium.wpmudev.org
+Plugin Name: Chat Lite
+Plugin URI: http://premium.wpmudev.org/project/wordpress-chat-plugin
+Description: Provides you with a fully featured chat area either in a post, page or bottom corner of your site - once activated configure <a href="options-general.php?page=chat">here</a> and drop into a post or page by clicking on the new chat icon in your post/page editor.
+Author: S H Mohanjith (Incsub)
+WDP ID: 223
+Version: 1.0.8.1
+Stable tag: trunk
+Author URI: http://premium.wpmudev.org
 */
 /**
  * @global	object	$chat	Convenient access to the chat object
  */
 global $chat;
+
+include_once( dirname(__FILE__) . '/lib/dash-notices/wpmudev-dash-notification.php' );
 
 /**
  * Chat object (PHP4 compatible)
@@ -32,7 +31,7 @@ if (!class_exists('Chat')) {
 		 * 
 		 * @var		string	$chat_current_version	Current version
 		 */
-		var $chat_current_version = '1.0.7';
+		var $chat_current_version = '1.0.8';
 		
 		/**
 		 * @var		string	$translation_domain	Translation domain
@@ -1623,11 +1622,14 @@ if (!class_exists('Chat')) {
 			if (in_array('network_user', $options) && is_user_logged_in()) {
 				return 2;
 			}
-			if (in_array('twitter', $options) && preg_match('/twitter/', $_COOKIE['chat_stateless_user_type_104']) > 0) {
-				return 4;
-			}
-			if (in_array('public_user', $options) && preg_match('/public_user/', $_COOKIE['chat_stateless_user_type_104']) > 0) {
-				return 5;
+			
+			if (isset($_COOKIE['chat_stateless_user_type_104'])) {
+				if (in_array('twitter', $options) && preg_match('/twitter/', $_COOKIE['chat_stateless_user_type_104']) > 0) {
+					return 4;
+				}
+				if (in_array('public_user', $options) && preg_match('/public_user/', $_COOKIE['chat_stateless_user_type_104']) > 0) {
+					return 5;
+				}
 			}
 			return false;
 		}
@@ -1691,6 +1693,7 @@ if (!class_exists('Chat')) {
 					$width_style = '';
 				} else {
 					$width_style = ' free-width';
+					$width_str = '';
 				}
 				echo '<div id="chat-block-site" class="chat-block-site closed'.$width_style.'" style="'.$width_str.'; background-color: '.$this->get_option('border_color', '#4b96e2', 'site').';">';
 				echo '<div id="chat-block-header" class="chat-block-header"><span class="chat-title-text">'.__('Chat', $this->translation_domain).'</span><span class="chat-prompt-text">'.__('Click here to chat!', $this->translation_domain).'</span>';
@@ -1762,7 +1765,32 @@ if (!class_exists('Chat')) {
 				$url_separator = "?";
 			}
 			
+			/*
 			$smilies_list = array(':)', ':D', ':(', ':o', '8O', ':?', '8)', ':x', ':P', ':|', ';)', ':lol:', ':oops:', ':cry:', ':evil:', ':twisted:', ':roll:', ':!:', ':?:', ':idea:', ':arrow:', ':mrgreen:');
+			*/
+			$smilies_list = array(
+					':smile:', 
+					':grin:', 
+					':sad:', 
+					':eek:', 
+					':shock:', 
+					':???:', 
+					':cool:', 
+					':mad:', 
+					':razz:', 
+					':neutral:', 
+					':wink:', 
+					':lol:', 
+					':oops:', 
+					':cry:', 
+					':evil:', 
+					':twisted:', 
+					':roll:', 
+					':!:', 
+					':?:', 
+					':idea:', 
+					':arrow:');
+			
 			
 			if ($post) {
 				$content = '<div id="chat-box-'.$a['id'].'" class="chat-box" style="width: '.$a['width'].' !important; background-color: '.$a['background_color'].'; '.$font_style.'" >';
@@ -1985,21 +2013,87 @@ if (!class_exists('Chat')) {
 					break; 
 				case 'send':
 					$chat_id = $_POST['cid'];
-					$name = htmlentities(strip_tags($_POST['name']));
-					$avatar = (isset($_COOKIE['chat_stateless_user_image_'.$this->auth_type_map[$_POST['type']]]) && !empty($_COOKIE['chat_stateless_user_image_'.$this->auth_type_map[$_POST['type']]]))?$_COOKIE['chat_stateless_user_image_'.$this->auth_type_map[$_POST['type']]]:$current_user->user_email;
-					// $avatar = ($current_user && $current_user->user_email && $current_user->display_name == $_POST['name'])?$current_user->user_email:$avatar;
-					$message = $_POST['message'];
 					
+					$name = base64_decode($_POST['name']);
+					$name = htmlentities(strip_tags($name));
+					
+					$avatar = (isset($_COOKIE['chat_stateless_user_image_'.$this->auth_type_map[$_POST['type']]]) && !empty($_COOKIE['chat_stateless_user_image_'.$this->auth_type_map[$_POST['type']]]))?$_COOKIE['chat_stateless_user_image_'.$this->auth_type_map[$_POST['type']]]:$current_user->user_email;
+
 					$moderator_roles = explode(',', $_POST['moderator_roles']);
 					$moderator = $this->is_moderator($moderator_roles);
+
+					// $avatar = ($current_user && $current_user->user_email && $current_user->display_name == $_POST['name'])?$current_user->user_email:$avatar;
+					$message = $_POST['message'];
+					$chat_message = base64_decode($message);
+					if (empty($chat_message)) die();
 					
-					$message = preg_replace(array('/<code>/','/<\/code>/'), array('[code]', '[/code]'), $message);
+					//$message = preg_replace(array('/<code>/','/<\/code>/'), array('[code]', '[/code]'), $message);
 					
-					$message = htmlentities(strip_tags($message));
-					$smessage = base64_decode($message);
+					//$message = htmlentities(strip_tags($message));
 					
-					
-					$this->send_message($chat_id, $name, $avatar, base64_encode($smessage), $moderator);
+					// Replace the chr(10) Line feed (not the chr(13) carraige return) with a placeholder. Will be replaced with real <br /> after filtering
+					// This is done so when we convert text within [code][/code] the <br /> are not converted to entities. Because we want the code to be formatted
+					$chat_message = str_replace(chr(10), "[[CR]]", $chat_message);	
+
+					// In case the user entered HTML <code></code> instead of [code][/code]
+					$chat_message = str_replace("<code>", "[code]", $chat_message);	
+					$chat_message = str_replace("</code>", "[/code]", $chat_message);	
+
+					// We also can accept backtick quoted text and convert to [code][/code]
+					$chat_message = preg_replace('/`(.*?)`/', '[code]$1[/code]', $chat_message);
+
+					// Now split out the [code][/code] sections. 
+					//preg_match_all("|\[code\](.*)\[/code\]|s", $chat_message, $code_out);
+					preg_match_all("~\[code\](.+?)\[/code\]~si", $chat_message, $code_out);				
+					if (($code_out) && (is_array($code_out)) && (is_array($code_out[0])) && (count($code_out[0]))) {
+						foreach($code_out[0] as $code_idx => $code_str_original) {
+							if (!isset($code_out[1][$code_idx])) continue;
+
+							// Here we replace our [code][/code] block or text in the message with placeholder [code-XXX] where XXX is the index (0,1,2,3, etc.)
+							// Again we do this because in the next step we will strip out all HTML not allowed. We want to protect any HTML within the code block
+							// which will be converted to HTML entities after the filtering.
+							$chat_message = str_replace($code_str_original, '[code-'. $code_idx.']', $chat_message);
+						}
+					}
+
+					// First strip all the tags!
+					$allowed_protocols = array();
+					$allowed_html = array();
+					/*
+					$allowed_html = array(	'a' => array('href' => array()),
+											'br' => array(),
+											'em' => array(),
+											'strong' => array(),
+											'strike' => array(),
+											'blockquote' => array()
+										);
+					*/
+					$chat_message = wp_kses($chat_message, $allowed_html, $allowed_protocols);
+
+					// If the user enters something that liiks like a link (http://, ftp://, etc) it will be made clickable
+					// in that is will be wrapped in an anchor, etc. The the link tarket will be set so clicking it will open
+					// in a new window
+					$chat_message = links_add_target(make_clickable($chat_message));
+
+					// Now that we can filtered the text outside the [code][/code] we want to convert the code section HTML to entities since it 
+					// will be viewed that way by other users. 
+					if (($code_out) && (is_array($code_out)) && (is_array($code_out[0])) && (count($code_out[0]))) {
+						foreach($code_out[0] as $code_idx => $code_str_original) {
+							if (!isset($code_out[1][$code_idx])) continue;
+
+							$code_str_replace = "<code>". htmlentities2($code_out[1][$code_idx], ENT_QUOTES|ENT_XHTML) ."</code>";
+							$chat_message = str_replace('[code-'.$code_idx.']', $code_str_replace, $chat_message);		
+						}
+					}
+
+					// Finally convert any of our CR placeholders to HTML breaks. 
+					$chat_message = str_replace("[[CR]]", '<br />', $chat_message);	
+
+					// Just as a precaution. After processing we may end up with double breaks. So we convert to single. 
+					$chat_message = str_replace("<br /><br />", '<br />', $chat_message);	
+
+										
+					$this->send_message($chat_id, $name, $avatar, $chat_message, $moderator);
 					break;
 			}
 			
@@ -2047,9 +2141,9 @@ if (!class_exists('Chat')) {
 		function get_messages($chat_id, $since = 0, $end = 0, $archived = 'no', $since_id = false) {
 			global $wpdb, $blog_id;
 			
-			$chat_id = $wpdb->escape($chat_id);
-			$archived = $wpdb->escape($archived);
-			$since_id = $wpdb->escape($since_id);
+			//$chat_id = $wpdb->escape($chat_id);
+			//$archived = $wpdb->escape($archived);
+			//$since_id = $wpdb->escape($since_id);
 			
 			if (empty($end)) {
 				$end = time();
@@ -2064,9 +2158,14 @@ if (!class_exists('Chat')) {
 				$start = date('Y-m-d H:i:s', 0);
 			}
 			
+			/*
 			return $wpdb->get_results(
 				"SELECT * FROM `".Chat::tablename('message')."` WHERE blog_id = '$blog_id' AND chat_id = '$chat_id' AND archived = '$archived' AND timestamp BETWEEN '$start' AND '$end' AND id > '$since_id' ORDER BY timestamp ASC;"
 			);
+			*/
+			return $wpdb->get_results($wpdb->prepare("SELECT * FROM `".Chat::tablename('message')."` WHERE blog_id= %d AND chat_id= %d AND archived= %s AND timestamp BETWEEN %s AND %s AND id > %s ORDER BY timestamp ASC;", $blog_id, $chat_id, $archived, $start, $end, $since_id));
+			
+			
 		}
 		
 		/**
@@ -2087,10 +2186,10 @@ if (!class_exists('Chat')) {
 			
 			$time_stamp = date("Y-m-d H:i:s");
 			
-			$chat_id = $wpdb->_real_escape($chat_id);
-			$name = $wpdb->_real_escape(trim(base64_decode($name)));
-			$avatar = $wpdb->_real_escape(trim($avatar));
-			$message = $wpdb->_real_escape(trim(base64_decode($message)));
+			//$chat_id = $wpdb->_real_escape($chat_id);
+			//$name = $wpdb->_real_escape(trim(base64_decode($name)));
+			//$avatar = $wpdb->_real_escape(trim($avatar));
+			//$message = $wpdb->_real_escape(trim(base64_decode($message)));
 			$moderator_str = 'no';
 			
 			if (empty($message)) {
@@ -2099,10 +2198,14 @@ if (!class_exists('Chat')) {
 			if ($moderator) {
 				$moderator_str = 'yes';
 			}
-			
+			/*
 			return $wpdb->query("INSERT INTO ".Chat::tablename('message')."
 						(blog_id, chat_id, timestamp, name, avatar, message, archived, moderator)
 						VALUES ('$blog_id', '$chat_id', '$time_stamp', '$name', '$avatar', '$message', 'no', '$moderator_str');");
+			*/
+			return $wpdb->query($wpdb->prepare("INSERT INTO ".Chat::tablename('message')."
+						(blog_id, chat_id, timestamp, name, avatar, message, archived, moderator)
+						VALUES (%d, %d, %s, %s, %s, %s, %s, %s);", $blog_id, $chat_id, $time_stamp, $name, $avatar, $message, 'no', $moderator_str));
 		}
 		
 		/**
@@ -2114,7 +2217,8 @@ if (!class_exists('Chat')) {
 		function get_last_chat_id() {
 			global $wpdb, $blog_id;
 			
-			$last_id = $wpdb->get_var("SELECT chat_id FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' ORDER BY chat_id DESC LIMIT 1");
+			//$last_id = $wpdb->get_var("SELECT chat_id FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' ORDER BY chat_id DESC LIMIT 1");
+			$last_id = $wpdb->get_var($wpdb->prepare("SELECT chat_id FROM `".Chat::tablename('message')."` WHERE blog_id = %d ORDER BY chat_id DESC LIMIT 1", $blog_id));
 			
 			if ($last_id) {
 				return substr($last_id, 0, -1);
@@ -2135,7 +2239,9 @@ if (!class_exists('Chat')) {
 			$chat_id = $wpdb->escape($_POST['cid']);
 			
 			if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
-				$wpdb->query("DELETE FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no';");
+				//$wpdb->query("DELETE FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no';");
+
+				$wpdb->query($wpdb->prepare("DELETE FROM `".Chat::tablename('message')."` WHERE blog_id = %d AND chat_id = %d AND timestamp <= %s AND archived = %s;", $blog_id, $chat_id, $since, 'no'));
 			}
 			exit(0);
 		}
@@ -2154,20 +2260,31 @@ if (!class_exists('Chat')) {
 			$created = date('Y-m-d H:i:s');
 			
 			if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
-				$start = $wpdb->get_var("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp ASC LIMIT 1;");
-				$end = $wpdb->get_var("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp DESC LIMIT 1;");
+				//$start = $wpdb->get_var("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp ASC LIMIT 1;");
+				$start = $wpdb->get_var($wpdb->prepare("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = %d AND chat_id = %d AND timestamp <= %s AND archived = %s ORDER BY timestamp ASC LIMIT 1;", $blog_id, $chat_id, $since, 'no'));
+
+				//$end = $wpdb->get_var("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp DESC LIMIT 1;");
+				$end = $wpdb->get_var($wpdb->prepare("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = %d AND chat_id = %d AND timestamp <= %s AND archived = %s ORDER BY timestamp DESC LIMIT 1;", $blog_id, $chat_id, $since, 'no'));
 				
 				$sql = array();
 				
-				$sql[] = "SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp DESC LIMIT 1;";
-				$sql[] = "SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp ASC LIMIT 1; ";
-				$sql[] = "UPDATE `".Chat::tablename('message')."` set archived = 'yes' WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp BETWEEN '{$start}' AND '{$end}' AND archived = 'no';";
+				//$sql[] = "SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp DESC LIMIT 1;";
+				$sql[] = $wpdb->prepare("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = %d AND chat_id = %d AND timestamp <= %s AND archived = %s ORDER BY timestamp DESC LIMIT 1;", $blog_id, $chat_id, $since, 'no');
+
+
+				//$sql[] = "SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp <= '{$since}' AND archived = 'no' ORDER BY timestamp ASC LIMIT 1; ";
+				$sql[] = $wpdb->prepare("SELECT timestamp FROM `".Chat::tablename('message')."` WHERE blog_id = %d AND chat_id = %d AND timestamp <= %s AND archived = %s ORDER BY timestamp ASC LIMIT 1; ", $blog_id, $chat_id, $since, 'no');
+
+
+				//$sql[] = "UPDATE `".Chat::tablename('message')."` set archived = 'yes' WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp BETWEEN '{$start}' AND '{$end}' AND archived = 'no';";
+				$sql[] = $wpdb->prepare("UPDATE `".Chat::tablename('message')."` set archived = 'yes' WHERE blog_id = %d AND chat_id = %d AND timestamp BETWEEN %s AND %s AND archived = %s;", $blog_id, $chat_id, $start, $end, 'no');
 				
-				$wpdb->query("UPDATE `".Chat::tablename('message')."` set archived = 'yes' WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp BETWEEN '{$start}' AND '{$end}' AND archived = 'no';");
+				//$wpdb->query("UPDATE `".Chat::tablename('message')."` set archived = 'yes' WHERE blog_id = '{$blog_id}' AND chat_id = '{$chat_id}' AND timestamp BETWEEN '{$start}' AND '{$end}' AND archived = 'no';");
+				$wpdb->query($wpdb->prepare("UPDATE `".Chat::tablename('message')."` set archived = %s WHERE blog_id = %d AND chat_id = %d AND timestamp BETWEEN %s AND %s AND archived = %s ;", 'yes', $blog_id, $chat_id, $start, $end, 'no'));
 				
-				$wpdb->query("INSERT INTO ".Chat::tablename('log')."
+				$wpdb->query($wpdb->prepare("INSERT INTO ".Chat::tablename('log')."
 							(blog_id, chat_id, start, end, created)
-							VALUES ('$blog_id', '$chat_id', '$start', '$end', '$created');");
+							VALUES (%d, %d, %s, %s, %s);", $blog_id, $chat_id, $start, $end, $created));
 			}
 						
 			exit(0);
@@ -2186,23 +2303,16 @@ if (!class_exists('Chat')) {
 			
 			$chat_id = $wpdb->escape($chat_id);
 			
+			/*
 			return $wpdb->get_results(
 				"SELECT * FROM `".Chat::tablename('log')."` WHERE blog_id = '$blog_id' AND chat_id = '$chat_id' ORDER BY created ASC;"
 			);
+			*/
+			return $wpdb->get_results($wpdb->prepare("SELECT * FROM `".Chat::tablename('log')."` WHERE blog_id = %d AND chat_id = %d ORDER BY created ASC;", $blog_id, $chat_id));
+
 		}
 	}
 }
 
 // Lets get things started
 $chat = new Chat();
-
-if ( !function_exists( 'wdp_un_check' ) ) {
-	add_action( 'admin_notices', 'wdp_un_check', 5 );
-	add_action( 'network_admin_notices', 'wdp_un_check', 5 );
-
-	function wdp_un_check() {
-		if ( !class_exists( 'WPMUDEV_Update_Notifications' ) && current_user_can( 'edit_users' ) )
-			echo '<div class="error fade"><p>' . __('Please install the latest version of <a href="http://premium.wpmudev.org/project/update-notifications/" title="Download Now &raquo;">our free Update Notifications plugin</a> which helps you stay up-to-date with the most stable, secure versions of WPMU DEV themes and plugins. <a href="http://premium.wpmudev.org/wpmu-dev/update-notifications-plugin-information/">More information &raquo;</a>', 'wpmudev') . '</a></p></div>';
-	}
-}
-

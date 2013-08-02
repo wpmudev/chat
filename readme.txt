@@ -3,8 +3,8 @@ Contributors: WPMUDEV, mohanjith
 Author: WPMUDEV, mohanjith
 Tags: chat, twitter, facebook, short code
 Requires at least: 3.0.0
-Tested up to: 3.1.3
-Stable tag: trunk
+Tested up to: 3.6
+Stable tag: 1.0.8.1
 
 Add chat to your blog. Chat with your readers and let them chat with each other.
 
@@ -35,6 +35,9 @@ Our full version includes many more features:
 
 * **Allow any Twitter user to join the chat**
 * **Allow any Facebook user to join the chat**
+* **Allow any Google+ user to join the chat**
+* **BuddyPress Group Chat and Friend integration**
+* **Private chats between WP users**
 * **Select which roles are moderators**
 * **Easily change chat colors**
 * **Disable avatars**
@@ -53,6 +56,14 @@ Our full version includes many more features:
 Up the version to work with update plugin.
 
 == ChangeLog ==
+
+= 1.0.8.1 =
+* Update for XSS vulnerability
+* Fixed issue with chat not scrolling on new message
+* Tested for WordPress 3.6
+
+= 1.0.8 =
+* Update for WordPress 3.5.2
 
 = 1.0.7 =
 * Adding update code
