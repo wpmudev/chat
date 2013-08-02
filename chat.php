@@ -14,7 +14,7 @@ Author URI: http://premium.wpmudev.org
  */
 global $chat;
 
-include_once( dirname(__FILE__) . '/lib/dash-notices/wpmudev-dash-notification.php' );
+//include_once( dirname(__FILE__) . '/lib/dash-notices/wpmudev-dash-notification.php' );
 
 /**
  * Chat object (PHP4 compatible)
@@ -219,11 +219,11 @@ if (!class_exists('Chat')) {
 								message TEXT CHARACTER SET utf8 NOT NULL ,
 								moderator ENUM( 'yes', 'no' ) NOT NULL DEFAULT 'no' ,
 								archived ENUM( 'yes', 'no' ) NOT NULL DEFAULT 'no' ,
-								PRIMARY KEY (`id`),
-								KEY `blog_id` (`blog_id`),
-								KEY `chat_id` (`chat_id`),
-								KEY `timestamp` (`timestamp`),
-								KEY `archived` (`archived`)
+								PRIMARY KEY  (id),
+								KEY blog_id (blog_id),
+								KEY chat_id (chat_id),
+								KEY timestamp (timestamp),
+								KEY archived (archived)
 							) ENGINE = InnoDB {$charset_collate};";
 				dbDelta($sql_main);
 			} else {
@@ -244,9 +244,9 @@ if (!class_exists('Chat')) {
 							start TIMESTAMP DEFAULT '0000-00-00 00:00:00' ,
 							end TIMESTAMP DEFAULT '0000-00-00 00:00:00' ,
 							created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-							PRIMARY KEY (`id`),
-							KEY `blog_id` (`blog_id`),
-							KEY `chat_id` (`chat_id`)
+							PRIMARY KEY  (id),
+							KEY blog_id (blog_id),
+							KEY chat_id (chat_id)
 						) ENGINE = InnoDB {$charset_collate};";
 			dbDelta($sql_main);
 			
