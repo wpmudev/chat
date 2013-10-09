@@ -1,411 +1,416 @@
-# Translation of the WordPress plugin Chat 1.0.2 by S H Mohanjith (Incsub).
-# Copyright (C) 2011 S H Mohanjith (Incsub)
-# This file is distributed under the same license as the Chat package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
-#
-#, fuzzy
+# Copyright (C) 2013 Chat Lite
+# This file is distributed under the same license as the Chat Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Chat 1.0.2\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/chat\n"
-"POT-Creation-Date: 2011-01-02 10:38+0530\n"
-"PO-Revision-Date: 2011-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: Chat Lite 1.0.8.1\n"
+"Report-Msgid-Bugs-To: http://premium.wpmudev.org/\n"
+"POT-Creation-Date: 2013-10-09 18:01:42+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-#: chat.php:376
+#: chat.php:390
 msgid "Chat Plugin Options"
 msgstr ""
 
-#. #-#-#-#-#  chat.pot (Chat 1.0.2)  #-#-#-#-#
-#. Plugin Name of the plugin/theme
-#: chat.php:376 chat.php:1637
+#: chat.php:390 chat.php:1699
 msgid "Chat"
 msgstr ""
 
-#: chat.php:589 chat.php:849 chat.php:1060
+#: chat.php:591 chat.php:877 chat.php:1115
 msgid "Play sound when a new message is received?"
 msgstr ""
 
-#: chat.php:601 chat.php:860 chat.php:1071
+#: chat.php:603 chat.php:888 chat.php:1126
 msgid "Display the user's avatar with the message?"
 msgstr ""
 
-#: chat.php:612 chat.php:871 chat.php:1082
+#: chat.php:614 chat.php:899 chat.php:1137
 msgid "Display emoticons bar?"
 msgstr ""
 
-#: chat.php:623 chat.php:882 chat.php:1093
+#: chat.php:625 chat.php:910 chat.php:1148
 msgid "Display date the message was sent?"
 msgstr ""
 
-#: chat.php:634 chat.php:893 chat.php:1104
+#: chat.php:636 chat.php:921 chat.php:1159
 msgid "Display the time  the message was sent?"
 msgstr ""
 
-#: chat.php:643 chat.php:902 chat.php:1113
+#: chat.php:645 chat.php:930 chat.php:1168
 msgid "Dimensions of the chat box"
 msgstr ""
 
-#: chat.php:660 chat.php:917 chat.php:1137
+#: chat.php:662 chat.php:945 chat.php:1192
 msgid "Chat box background color"
 msgstr ""
 
-#: chat.php:669
+#: chat.php:671
 msgid "Date background color"
 msgstr ""
 
-#: chat.php:678 chat.php:935 chat.php:1155
+#: chat.php:680 chat.php:963 chat.php:1210
 msgid "Name background color"
 msgstr ""
 
-#: chat.php:687 chat.php:944 chat.php:1164
-msgid "Text background color"
+#: chat.php:689 chat.php:972 chat.php:1219
+msgid "Moderator Name background color"
 msgstr ""
 
-#: chat.php:706 chat.php:962 chat.php:1182
+#: chat.php:698 chat.php:981 chat.php:1228
+msgid "Text color"
+msgstr ""
+
+#: chat.php:717 chat.php:999 chat.php:1246
 msgid "Chat box font"
 msgstr ""
 
-#: chat.php:718 chat.php:974 chat.php:1193
+#: chat.php:729 chat.php:1011 chat.php:1257
 msgid "Chat box font size"
 msgstr ""
 
-#: chat.php:737 chat.php:991 chat.php:1210
+#: chat.php:748 chat.php:1028 chat.php:1274
 msgid "Log chat messages?"
 msgstr ""
 
-#: chat.php:748 chat.php:1002 chat.php:1221
+#: chat.php:759 chat.php:1039 chat.php:1285
 msgid "Display chat logs?"
 msgstr ""
 
-#: chat.php:762 chat.php:1014 chat.php:1233
+#: chat.php:773 chat.php:1051 chat.php:1297
 msgid "Current user"
 msgstr ""
 
-#: chat.php:764 chat.php:1016 chat.php:1235
+#: chat.php:775 chat.php:1053 chat.php:1299
 msgid "Network user"
 msgstr ""
 
-#: chat.php:766 chat.php:1018 chat.php:1237
+#: chat.php:777 chat.php:1055 chat.php:1301
 msgid "Public user"
 msgstr ""
 
-#: chat.php:768 chat.php:1019 chat.php:1238
+#: chat.php:779 chat.php:1056 chat.php:1302
 msgid "Twitter"
 msgstr ""
 
-#: chat.php:771 chat.php:1020 chat.php:1239
+#: chat.php:782 chat.php:1057 chat.php:1303
 msgid "Facebook"
 msgstr ""
 
-#: chat.php:774 chat.php:1022 chat.php:1241
+#: chat.php:785 chat.php:1059 chat.php:1305
 msgid "Authentication methods users can use"
 msgstr ""
 
-#: chat.php:822 chat.php:1468
+#: chat.php:799 chat.php:1074 chat.php:1320
+msgid "Select which roles are moderators"
+msgstr ""
+
+#: chat.php:847 chat.php:1558
 msgid "Chat Settings"
 msgstr ""
 
-#: chat.php:828
+#: chat.php:853
 msgid "In post chat options"
 msgstr ""
 
-#: chat.php:829
+#: chat.php:854
 msgid "Bottom corner chat"
 msgstr ""
 
-#: chat.php:830
+#: chat.php:855
 msgid "Twitter API"
 msgstr ""
 
-#: chat.php:831
+#: chat.php:856
 msgid "Facebook API"
 msgstr ""
 
-#: chat.php:832
+#: chat.php:857
 msgid "Advanced"
 msgstr ""
 
-#: chat.php:838 chat.php:1048
+#: chat.php:861 chat.php:1081
+msgid "Grayed out options available in the full version. <a href=\"%s\" target=\"_blank\">**Upgrade to the full version now &raquo;**</a>"
+msgstr ""
+
+#: chat.php:863
+msgid "Default options for in post chat boxes"
+msgstr ""
+
+#: chat.php:866 chat.php:1103
 msgid "General"
 msgstr ""
 
-#: chat.php:842 chat.php:1053
+#: chat.php:870 chat.php:1108
 msgid "Sound"
 msgstr ""
 
-#: chat.php:845 chat.php:856 chat.php:867 chat.php:878 chat.php:889
-#: chat.php:987 chat.php:998 chat.php:1038 chat.php:1056 chat.php:1067
-#: chat.php:1078 chat.php:1089 chat.php:1100 chat.php:1206 chat.php:1217
-#: chat.php:1475
+#: chat.php:873 chat.php:884 chat.php:895 chat.php:906 chat.php:917
+#: chat.php:1024 chat.php:1035 chat.php:1093 chat.php:1111 chat.php:1122
+#: chat.php:1133 chat.php:1144 chat.php:1155 chat.php:1270 chat.php:1281
+#: chat.php:1565
 msgid "Enabled"
 msgstr ""
 
-#: chat.php:846 chat.php:857 chat.php:868 chat.php:879 chat.php:890
-#: chat.php:988 chat.php:999 chat.php:1039 chat.php:1057 chat.php:1068
-#: chat.php:1079 chat.php:1090 chat.php:1101 chat.php:1207 chat.php:1218
-#: chat.php:1476
+#: chat.php:874 chat.php:885 chat.php:896 chat.php:907 chat.php:918
+#: chat.php:1025 chat.php:1036 chat.php:1094 chat.php:1112 chat.php:1123
+#: chat.php:1134 chat.php:1145 chat.php:1156 chat.php:1271 chat.php:1282
+#: chat.php:1566
 msgid "Disabled"
 msgstr ""
 
-#: chat.php:853 chat.php:1064
+#: chat.php:881 chat.php:1119
 msgid "Avatar"
 msgstr ""
 
-#: chat.php:864 chat.php:1075
+#: chat.php:892 chat.php:1130
 msgid "Emoticons"
 msgstr ""
 
-#: chat.php:875 chat.php:1086
+#: chat.php:903 chat.php:1141
 msgid "Show date"
 msgstr ""
 
-#: chat.php:886 chat.php:1097
+#: chat.php:914 chat.php:1152
 msgid "Show time"
 msgstr ""
 
-#: chat.php:897 chat.php:1108
+#: chat.php:925 chat.php:1163
 msgid "Dimensions"
 msgstr ""
 
-#: chat.php:908 chat.php:1119
+#: chat.php:936 chat.php:1174
 msgid "Colors"
 msgstr ""
 
-#: chat.php:912 chat.php:1132
+#: chat.php:940 chat.php:1187
 msgid "Background"
 msgstr ""
 
-#: chat.php:921 chat.php:1141
+#: chat.php:949 chat.php:1196
 msgid "Date"
 msgstr ""
 
-#: chat.php:926 chat.php:1146
+#: chat.php:954 chat.php:1201
 msgid "Date and time background color"
 msgstr ""
 
-#: chat.php:930 chat.php:1150 chat.php:1763
+#: chat.php:958 chat.php:1205 chat.php:1844
 msgid "Name"
 msgstr ""
 
-#: chat.php:939 chat.php:1159
+#: chat.php:967 chat.php:1214
+msgid "Moderator Name"
+msgstr ""
+
+#: chat.php:976 chat.php:1223
 msgid "Text"
 msgstr ""
 
-#: chat.php:950 chat.php:1170
+#: chat.php:987 chat.php:1234
 msgid "Fonts"
 msgstr ""
 
-#: chat.php:954 chat.php:1174
+#: chat.php:991 chat.php:1238
 msgid "Font"
 msgstr ""
 
-#: chat.php:966 chat.php:1186
+#: chat.php:1003 chat.php:1250
 msgid "Font size"
 msgstr ""
 
-#: chat.php:980 chat.php:1199
+#: chat.php:1017 chat.php:1263
 msgid "Logs"
 msgstr ""
 
-#: chat.php:984 chat.php:1203
+#: chat.php:1021 chat.php:1267
 msgid "Creation"
 msgstr ""
 
-#: chat.php:995 chat.php:1214
+#: chat.php:1032 chat.php:1278
 msgid "Display"
 msgstr ""
 
-#: chat.php:1008 chat.php:1227
+#: chat.php:1045 chat.php:1291
 msgid "Authentication"
 msgstr ""
 
-#: chat.php:1012 chat.php:1231
+#: chat.php:1049 chat.php:1295
 msgid "Login options"
 msgstr ""
 
-#: chat.php:1031
+#: chat.php:1063 chat.php:1309
+msgid "Moderator roles"
+msgstr ""
+
+#: chat.php:1083
+msgid "Options for the bottom corner chat"
+msgstr ""
+
+#: chat.php:1086
 msgid "Main"
 msgstr ""
 
-#: chat.php:1035
+#: chat.php:1090
 msgid "Show"
 msgstr ""
 
-#: chat.php:1042
+#: chat.php:1097
 msgid "Display bottom corner chat?"
 msgstr ""
 
-#: chat.php:1123
+#: chat.php:1178
 msgid "Border"
 msgstr ""
 
-#: chat.php:1128
+#: chat.php:1183
 msgid "Chat box border color"
 msgstr ""
 
-#: chat.php:1250
+#: chat.php:1329 chat.php:1354 chat.php:1384
+msgid "Only available in the full version. <a href=\"%s\" target=\"_blank\">**Upgrade to the full version now &raquo;**</a>"
+msgstr ""
+
+#: chat.php:1332
 msgid "@Anywhere API key"
 msgstr ""
 
-#: chat.php:1256
-#, php-format
-msgid ""
-"Register this site as an application on Twitter's <a target=\"_blank\" href="
-"\"%s\">app registration page</a>"
+#: chat.php:1338
+msgid "Register this site as an application on Twitter's <a target=\"_blank\" href=\"%s\">app registration page</a>"
 msgstr ""
 
-#: chat.php:1257
+#: chat.php:1339
 msgid "If you're not logged in, you can use your Twitter username and password"
 msgstr ""
 
-#: chat.php:1258
-msgid ""
-"Your Application's Name will be what shows up after \"via\" in your twitter "
-"stream"
+#: chat.php:1340
+msgid "Your Application's Name will be what shows up after \"via\" in your twitter stream"
 msgstr ""
 
-#: chat.php:1259
+#: chat.php:1341
 msgid "Application Type should be set on Browser"
 msgstr ""
 
-#: chat.php:1260
+#: chat.php:1342
 msgid "The callback URL should be"
 msgstr ""
 
-#: chat.php:1261
-msgid ""
-"Once you have registered your site as an application, you will be provided "
-"with @Anywhere API key."
+#: chat.php:1343
+msgid "Once you have registered your site as an application, you will be provided with @Anywhere API key."
 msgstr ""
 
-#: chat.php:1262 chat.php:1282
+#: chat.php:1344 chat.php:1367
 msgid "Copy and paste them to the fields on the left"
 msgstr ""
 
-#: chat.php:1272
+#: chat.php:1357
 msgid "Application id"
 msgstr ""
 
-#: chat.php:1278
-#, php-format
-msgid ""
-"Register this site as an application on Facebook's <a target=\"_blank\" href="
-"\"%s\">app registration page</a>"
+#: chat.php:1363
+msgid "Register this site as an application on Facebook's <a target=\"_blank\" href=\"%s\">app registration page</a>"
 msgstr ""
 
-#: chat.php:1279
-msgid ""
-"If you're not logged in, you can use your Facebook username and password"
+#: chat.php:1364
+msgid "If you're not logged in, you can use your Facebook username and password"
 msgstr ""
 
-#: chat.php:1280
+#: chat.php:1365
 msgid "The site URL should be"
 msgstr ""
 
-#: chat.php:1281
-msgid ""
-"Once you have registered your site as an application, you will be provided "
-"with a Application ID and a Application secret."
+#: chat.php:1366
+msgid "Once you have registered your site as an application, you will be provided with a Application ID and a Application secret."
 msgstr ""
 
-#: chat.php:1288
+#: chat.php:1373
 msgid "Application secret"
 msgstr ""
 
-#: chat.php:1299
+#: chat.php:1387
 msgid "Interval"
 msgstr ""
 
-#: chat.php:1314
+#: chat.php:1402
 msgid "Save Changes"
 msgstr ""
 
-#: chat.php:1352
+#: chat.php:1440
 msgid "Sign out of Facebook"
 msgstr ""
 
-#: chat.php:1353
+#: chat.php:1441
 msgid "Sign out of Twitter"
 msgstr ""
 
-#: chat.php:1354
+#: chat.php:1442
 msgid "Please wait..."
 msgstr ""
 
-#: chat.php:1356
+#: chat.php:1444
 msgid "Minimize"
 msgstr ""
 
-#: chat.php:1358 chat.php:1638
+#: chat.php:1446 chat.php:1700
 msgid "Maximize"
 msgstr ""
 
-#: chat.php:1472
+#: chat.php:1562
 msgid "Chat sounds"
 msgstr ""
 
-#: chat.php:1637
+#: chat.php:1699
 msgid "Click here to chat!"
 msgstr ""
 
-#: chat.php:1721
+#: chat.php:1810
 msgid "Message"
 msgstr ""
 
-#: chat.php:1740
+#: chat.php:1829
 msgid "\"Enter\" to send"
 msgstr ""
 
-#: chat.php:1740
+#: chat.php:1829
 msgid "Place code in between code tags"
 msgstr ""
 
-#: chat.php:1742
+#: chat.php:1831
 msgid "Logout"
 msgstr ""
 
-#: chat.php:1749
-msgid "Archive"
-msgstr ""
-
-#: chat.php:1751
-msgid "Clear"
-msgstr ""
-
-#: chat.php:1760
+#: chat.php:1841
 msgid "To get started just enter your email address and desired username"
 msgstr ""
 
-#: chat.php:1764
+#: chat.php:1845
 msgid "E-mail"
 msgstr ""
 
-#: chat.php:1765
+#: chat.php:1846
 msgid "Login"
 msgstr ""
 
-#: chat.php:1781
+#: chat.php:1862
 msgid "You must be logged in to participate in chats"
 msgstr ""
 
-#: chat.php:1793
+#: chat.php:1874
 msgid "Chat Logs"
 msgstr ""
 
-#: chat.php:2103
-msgid ""
-"Please install the latest version of <a href=\"http://premium.wpmudev.org/"
-"project/update-notifications/\" title=\"Download Now &raquo;\">our free "
-"Update Notifications plugin</a> which helps you stay up-to-date with the "
-"most stable, secure versions of WPMU DEV themes and plugins. <a href="
-"\"http://premium.wpmudev.org/wpmu-dev/update-notifications-plugin-"
-"information/\">More information &raquo;</a>"
+#: lib/dash-notices/wpmudev-dash-notification.php:57
+msgid "Easily get updates, support, and one-click WPMU DEV plugin/theme installations right from in your dashboard - <strong><a href=\"%s\" title=\"Install Now &raquo;\">install the free WPMU DEV Dashboard plugin</a></strong>. &nbsp;&nbsp;&nbsp;<small><a href=\"http://premium.wpmudev.org/wpmu-dev/update-notifications-plugin-information/\">(find out more)</a></small>"
+msgstr ""
+
+#: lib/dash-notices/wpmudev-dash-notification.php:61
+msgid "Updates, Support, Premium Plugins, Community - <strong><a href=\"%s\" title=\"Activate Now &raquo;\">activate the WPMU DEV Dashboard plugin now</a></strong>."
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "Chat Lite"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -413,7 +418,7 @@ msgid "http://premium.wpmudev.org/project/wordpress-chat-plugin"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Provides you with a fully featured chat area either in a"
+msgid "Provides you with a fully featured chat area either in a post, page or bottom corner of your site - once activated configure <a href=\"options-general.php?page=chat\">here</a> and drop into a post or page by clicking on the new chat icon in your post/page editor."
 msgstr ""
 
 #. Author of the plugin/theme
