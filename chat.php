@@ -5,7 +5,7 @@ Plugin URI: http://premium.wpmudev.org/project/wordpress-chat-plugin
 Description: Provides you with a fully featured chat area either in a post, page or bottom corner of your site - once activated configure <a href="options-general.php?page=chat">here</a> and drop into a post or page by clicking on the new chat icon in your post/page editor.
 Author: WPMUDev
 WDP ID: 223
-Version: 1.0.8.5
+Version: 1.1
 Stable tag: trunk
 Author URI: http://premium.wpmudev.org
 */
@@ -465,8 +465,10 @@ if ( ! class_exists( 'Chat' ) ) {
 				<script type="text/javascript" src="../wp-includes/js/tinymce/utils/mctabs.js?ver=327-1235"></script>
 				<script type="text/javascript" src="../wp-includes/js/tinymce/utils/validate.js?ver=327-1235"></script>
 
-				<script type="text/javascript" src="../wp-includes/js/tinymce/utils/form_utils.js?ver=327-1235"></script>
-				<script type="text/javascript" src="../wp-includes/js/tinymce/utils/editable_selects.js?ver=327-1235"></script>
+				<script type="text/javascript"
+				        src="../wp-includes/js/tinymce/utils/form_utils.js?ver=327-1235"></script>
+				<script type="text/javascript"
+				        src="../wp-includes/js/tinymce/utils/editable_selects.js?ver=327-1235"></script>
 
 				<script type="text/javascript" src="../wp-includes/js/jquery/jquery.js"></script>
 
@@ -604,16 +606,21 @@ if ( ! class_exists( 'Chat' ) ) {
 				<div class="tabs">
 					<ul>
 						<li id="general_tab" class="current">
-							<span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');generatePreview();" onmousedown="return false;">{#chat_dlg.general}</a></span>
+							<span><a
+									href="javascript:mcTabs.displayTab('general_tab','general_panel');generatePreview();"
+									onmousedown="return false;">{#chat_dlg.general}</a></span>
 						</li>
 						<li id="appearance_tab">
-							<span><a href="javascript:mcTabs.displayTab('appearance_tab','appearance_panel');" onmousedown="return false;">{#chat_dlg.appearance}</a></span>
+							<span><a href="javascript:mcTabs.displayTab('appearance_tab','appearance_panel');"
+							         onmousedown="return false;">{#chat_dlg.appearance}</a></span>
 						</li>
 						<li id="logs_tab">
-							<span><a href="javascript:mcTabs.displayTab('logs_tab','logs_panel');" onmousedown="return false;">{#chat_dlg.logs}</a></span>
+							<span><a href="javascript:mcTabs.displayTab('logs_tab','logs_panel');"
+							         onmousedown="return false;">{#chat_dlg.logs}</a></span>
 						</li>
 						<li id="authentication_tab">
-							<span><a href="javascript:mcTabs.displayTab('authentication_tab','authentication_panel');" onmousedown="return false;">{#chat_dlg.authentication}</a></span>
+							<span><a href="javascript:mcTabs.displayTab('authentication_tab','authentication_panel');"
+							         onmousedown="return false;">{#chat_dlg.authentication}</a></span>
 						</li>
 					</ul>
 				</div>
@@ -628,10 +635,12 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td><label for="chat_sound">{#chat_dlg.sound}</label></td>
 									<td>
 										<select id="chat_sound" name="chat_sound">
-											<option value="enabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="enabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.enabled}
 											</option>
-											<option value="disabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="disabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.disabled}
 											</option>
 										</select>
@@ -644,10 +653,12 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td><label for="chat_avatar">{#chat_dlg.avatar}</label></td>
 									<td>
 										<select id="chat_avatar" name="chat_avatar" disabled="disabled">
-											<option value="enabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="enabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.enabled}
 											</option>
-											<option value="disabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="disabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.disabled}
 											</option>
 										</select>
@@ -661,10 +672,12 @@ if ( ! class_exists( 'Chat' ) ) {
 										$emoticons = $this->get_option( 'emoticons', 'disabled' );
 										?>
 										<select id="chat_emoticons" name="chat_emoticons">
-											<option value="enabled" <?php print ( $emoticons == 'enabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="enabled" <?php print ( $emoticons == 'enabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.enabled}
 											</option>
-											<option value="disabled" <?php print ( $emoticons == 'disabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="disabled" <?php print ( $emoticons == 'disabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.disabled}
 											</option>
 										</select>
@@ -676,10 +689,12 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td><label for="chat_date_show">{#chat_dlg.show_date}</label></td>
 									<td>
 										<select id="chat_date_show" name="chat_date_show">
-											<option value="enabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="enabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.enabled}
 											</option>
-											<option value="disabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="disabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.disabled}
 											</option>
 										</select>
@@ -691,10 +706,12 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td><label for="chat_time_show">{#chat_dlg.show_time}</label></td>
 									<td>
 										<select id="chat_time_show" name="chat_time_show">
-											<option value="enabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="enabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.enabled}
 											</option>
-											<option value="disabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="disabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.disabled}
 											</option>
 										</select>
@@ -705,9 +722,13 @@ if ( ! class_exists( 'Chat' ) ) {
 								<tr>
 									<td><label for="chat_width">{#chat_dlg.dimensions}</label></td>
 									<td>
-										<input type="text" id="chat_width" name="chat_width" value="<?php print $this->get_option( 'width', '' ); ?>" class="size" size="5"/>
+										<input type="text" id="chat_width" name="chat_width"
+										       value="<?php print $this->get_option( 'width', '' ); ?>" class="size"
+										       size="5"/>
 										x
-										<input type="text" id="chat_height" name="chat_height" value="<?php print $this->get_option( 'height', '' ); ?>" class="size" size="5"/>
+										<input type="text" id="chat_height" name="chat_height"
+										       value="<?php print $this->get_option( 'height', '' ); ?>" class="size"
+										       size="5"/>
 									</td>
 									<td class="info"><?php _e( "Dimensions of the chat box", $this->translation_domain ); ?></td>
 								</tr>
@@ -723,7 +744,9 @@ if ( ! class_exists( 'Chat' ) ) {
 								<tr>
 									<td><label for="chat_background_color">{#chat_dlg.background}</label></td>
 									<td>
-										<input type="text" id="chat_background_color" name="chat_background_color" value="<?php print $this->get_option( 'background_color', '#ffffff' ); ?>" class="color" size="7" disabled="disabled"/>
+										<input type="text" id="chat_background_color" name="chat_background_color"
+										       value="<?php print $this->get_option( 'background_color', '#ffffff' ); ?>"
+										       class="color" size="7" disabled="disabled"/>
 
 										<div class="color" id="chat_background_color_panel"></div>
 									</td>
@@ -733,7 +756,9 @@ if ( ! class_exists( 'Chat' ) ) {
 								<tr>
 									<td><label for="chat_date_color">{#chat_dlg.date}</label></td>
 									<td>
-										<input type="text" id="chat_date_color" name="chat_date_color" value="<?php print $this->get_option( 'date_color', '#6699CC' ); ?>" class="color" size="7" disabled="disabled"/>
+										<input type="text" id="chat_date_color" name="chat_date_color"
+										       value="<?php print $this->get_option( 'date_color', '#6699CC' ); ?>"
+										       class="color" size="7" disabled="disabled"/>
 
 										<div class="color" id="chat_date_color_panel"></div>
 									</td>
@@ -743,7 +768,9 @@ if ( ! class_exists( 'Chat' ) ) {
 								<tr>
 									<td><label for="chat_name_color">{#chat_dlg.name}</label></td>
 									<td>
-										<input type="text" id="chat_name_color" name="chat_name_color" value="<?php print $this->get_option( 'name_color', '#666666' ); ?>" class="color" size="7" disabled="disabled"/>
+										<input type="text" id="chat_name_color" name="chat_name_color"
+										       value="<?php print $this->get_option( 'name_color', '#666666' ); ?>"
+										       class="color" size="7" disabled="disabled"/>
 
 										<div class="color" id="chat_name_color_panel"></div>
 									</td>
@@ -753,7 +780,10 @@ if ( ! class_exists( 'Chat' ) ) {
 								<tr>
 									<td><label for="chat_moderator_name_color">{#chat_dlg.moderator_name}</label></td>
 									<td>
-										<input type="text" id="chat_moderator_name_color" name="chat_moderator_name_color" value="<?php print $this->get_option( 'moderator_name_color', '#6699CC' ); ?>" class="color" size="7" disabled="disabled"/>
+										<input type="text" id="chat_moderator_name_color"
+										       name="chat_moderator_name_color"
+										       value="<?php print $this->get_option( 'moderator_name_color', '#6699CC' ); ?>"
+										       class="color" size="7" disabled="disabled"/>
 
 										<div class="color" id="chat_moderator_name_color_panel"></div>
 									</td>
@@ -763,7 +793,9 @@ if ( ! class_exists( 'Chat' ) ) {
 								<tr>
 									<td><label for="chat_text_color">{#chat_dlg.text}</label></td>
 									<td>
-										<input type="text" id="chat_text_color" name="chat_text_color" value="<?php print $this->get_option( 'text_color', '#000000' ); ?>" class="color" size="7" disabled="disabled"/>
+										<input type="text" id="chat_text_color" name="chat_text_color"
+										       value="<?php print $this->get_option( 'text_color', '#000000' ); ?>"
+										       class="color" size="7" disabled="disabled"/>
 
 										<div class="color" id="chat_text_color_panel"></div>
 									</td>
@@ -794,7 +826,8 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td>
 										<select id="chat_font_size" name="chat_font_size" class="font_size">
 											<?php for ( $font_size = 8; $font_size < 21; $font_size ++ ) { ?>
-												<option value="<?php print $font_size; ?>" <?php print ( $this->get_option( 'font_size', '12' ) == $font_size ) ? 'selected="selected"' : ''; ?> ><?php print $font_size; ?></option>
+												<option
+													value="<?php print $font_size; ?>" <?php print ( $this->get_option( 'font_size', '12' ) == $font_size ) ? 'selected="selected"' : ''; ?> ><?php print $font_size; ?></option>
 											<?php } ?>
 										</select> px
 									</td>
@@ -813,10 +846,12 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td><label for="chat_log_creation">{#chat_dlg.creation}</label></td>
 									<td>
 										<select id="chat_log_creation" name="chat_log_creation" disabled="disabled">
-											<option value="enabled" <?php print ( $this->get_option( 'log_creation', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="enabled" <?php print ( $this->get_option( 'log_creation', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.enabled}
 											</option>
-											<option value="disabled" <?php print ( $this->get_option( 'log_creation', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="disabled" <?php print ( $this->get_option( 'log_creation', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.disabled}
 											</option>
 										</select>
@@ -828,10 +863,12 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td><label for="chat_log_display">{#chat_dlg.display}</label></td>
 									<td>
 										<select id="chat_log_display" name="chat_log_display" disabled="disabled">
-											<option value="enabled" <?php print ( $this->get_option( 'log_display', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="enabled" <?php print ( $this->get_option( 'log_display', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.enabled}
 											</option>
-											<option value="disabled" <?php print ( $this->get_option( 'log_display', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
+											<option
+												value="disabled" <?php print ( $this->get_option( 'log_display', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>>
 												{#chat_dlg.disabled}
 											</option>
 										</select>
@@ -851,20 +888,30 @@ if ( ! class_exists( 'Chat' ) ) {
 									<td valign="top"><label for="chat_login_options">{#chat_dlg.login_options}</label>
 									</td>
 									<td>
-										<label><input type="checkbox" id="chat_login_options_current_user" name="chat_login_options" class="chat_login_options" value="current_user" <?php print ( in_array( 'current_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Current user', $this->translation_domain ); ?>
+										<label><input type="checkbox" id="chat_login_options_current_user"
+										              name="chat_login_options" class="chat_login_options"
+										              value="current_user" <?php print ( in_array( 'current_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Current user', $this->translation_domain ); ?>
 										</label><br/>
 										<?php if ( is_multisite() ) { ?>
-											<label><input type="checkbox" id="chat_login_options_network_user" name="chat_login_options" class="chat_login_options" value="network_user" <?php print ( in_array( 'network_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Network user', $this->translation_domain ); ?>
+											<label><input type="checkbox" id="chat_login_options_network_user"
+											              name="chat_login_options" class="chat_login_options"
+											              value="network_user" <?php print ( in_array( 'network_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Network user', $this->translation_domain ); ?>
 											</label><br/>
 										<?php } ?>
-										<label><input type="checkbox" id="chat_login_options_public_user" name="chat_login_options" class="chat_login_options" value="public_user" <?php print ( in_array( 'public_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Public user', $this->translation_domain ); ?>
+										<label><input type="checkbox" id="chat_login_options_public_user"
+										              name="chat_login_options" class="chat_login_options"
+										              value="public_user" <?php print ( in_array( 'public_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Public user', $this->translation_domain ); ?>
 										</label><br/>
 										<?php if ( $this->is_twitter_setup() ) { ?>
-											<label><input type="checkbox" id="chat_login_options_twitter" name="chat_login_options" class="chat_login_options" value="twitter" <?php print ( ! $this->is_twitter_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'twitter', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Twitter', $this->translation_domain ); ?>
+											<label><input type="checkbox" id="chat_login_options_twitter"
+											              name="chat_login_options" class="chat_login_options"
+											              value="twitter" <?php print ( ! $this->is_twitter_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'twitter', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Twitter', $this->translation_domain ); ?>
 											</label><br/>
 										<?php } ?>
 										<?php if ( $this->is_facebook_setup() ) { ?>
-											<label><input type="checkbox" id="chat_login_options_facebook" name="chat_login_options" class="chat_login_options" value="facebook" <?php print ( ! $this->is_facebook_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'facebook', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Facebook', $this->translation_domain ); ?>
+											<label><input type="checkbox" id="chat_login_options_facebook"
+											              name="chat_login_options" class="chat_login_options"
+											              value="facebook" <?php print ( ! $this->is_facebook_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'facebook', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Facebook', $this->translation_domain ); ?>
 											</label><br/>
 										<?php } ?>
 									</td>
@@ -878,13 +925,16 @@ if ( ! class_exists( 'Chat' ) ) {
 										foreach ( get_editable_roles() as $role => $details ) {
 											$name = translate_user_role( $details['name'] );
 											?>
-											<label><input type="checkbox" id="chat_moderator_roles_<?php print $role; ?>" name="chat_moderator_roles" class="chat_moderator_roles" value="<?php print $role; ?>" <?php print ( in_array( $role, $this->get_option( 'moderator_roles', array(
+											<label><input type="checkbox"
+											              id="chat_moderator_roles_<?php print $role; ?>"
+											              name="chat_moderator_roles" class="chat_moderator_roles"
+											              value="<?php print $role; ?>" <?php print ( in_array( $role, $this->get_option( 'moderator_roles', array(
 														'administrator',
 														'editor',
 														'author'
 													) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( $name, $this->translation_domain ); ?>
 											</label><br/>
-										<?php
+											<?php
 										}
 										?>
 									</td>
@@ -897,7 +947,8 @@ if ( ! class_exists( 'Chat' ) ) {
 
 				<div class="mceActionPanel">
 					<div style="float: left">
-						<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();"/>
+						<input type="button" id="cancel" name="cancel" value="{#cancel}"
+						       onclick="tinyMCEPopup.close();"/>
 					</div>
 
 					<div style="float: right">
@@ -974,12 +1025,15 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0">
 									<tr>
 										<td>
-											<label for="chat_sound"><?php _e( 'Sound', $this->translation_domain ); ?></label>
+											<label
+												for="chat_sound"><?php _e( 'Sound', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_sound" name="chat_default[sound]">
-												<option value="enabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'sound', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Play sound when a new message is received?", $this->translation_domain ); ?></td>
@@ -987,12 +1041,15 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr class="chat_lite_disabled">
 										<td>
-											<label for="chat_avatar"><?php _e( 'Avatar', $this->translation_domain ); ?></label>
+											<label
+												for="chat_avatar"><?php _e( 'Avatar', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_avatar" name="chat_default[avatar]" disabled="disabled">
-												<option value="enabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'avatar', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display the user's avatar with the message?", $this->translation_domain ); ?></td>
@@ -1000,14 +1057,17 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_emoticons"><?php _e( 'Emoticons', $this->translation_domain ); ?></label>
+											<label
+												for="chat_emoticons"><?php _e( 'Emoticons', $this->translation_domain ); ?></label>
 										</td>
 										<td><?php
 											$emoticons = $this->get_option( 'emoticons', 'disabled' );
 											?>
 											<select id="chat_emoticons" name="chat_default[emoticons]">
-												<option value="enabled" <?php echo ( $emoticons == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php echo ( $this->get_option( 'emoticons', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php echo ( $emoticons == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php echo ( $this->get_option( 'emoticons', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display emoticons bar?", $this->translation_domain ); ?></td>
@@ -1015,12 +1075,15 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_date_show"><?php _e( 'Show date', $this->translation_domain ); ?></label>
+											<label
+												for="chat_date_show"><?php _e( 'Show date', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_date_show" name="chat_default[date_show]">
-												<option value="enabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'date_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display date the message was sent?", $this->translation_domain ); ?></td>
@@ -1028,12 +1091,15 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_time_show"><?php _e( 'Show time', $this->translation_domain ); ?></label>
+											<label
+												for="chat_time_show"><?php _e( 'Show time', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_time_show" name="chat_default[time_show]">
-												<option value="enabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'time_show', 'disabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display the time  the message was sent?", $this->translation_domain ); ?></td>
@@ -1041,12 +1107,17 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_width"><?php _e( 'Dimensions', $this->translation_domain ); ?></label>
+											<label
+												for="chat_width"><?php _e( 'Dimensions', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_width" name="chat_default[width]" value="<?php print $this->get_option( 'width', '100%' ); ?>" class="size" size="5"/>
+											<input type="text" id="chat_width" name="chat_default[width]"
+											       value="<?php print $this->get_option( 'width', '100%' ); ?>"
+											       class="size" size="5"/>
 											x
-											<input type="text" id="chat_height" name="chat_default[height]" value="<?php print $this->get_option( 'height', '425px' ); ?>" class="size" size="5"/>
+											<input type="text" id="chat_height" name="chat_default[height]"
+											       value="<?php print $this->get_option( 'height', '425px' ); ?>"
+											       class="size" size="5"/>
 										</td>
 										<td class="info"><?php _e( "Dimensions of the chat box", $this->translation_domain ); ?></td>
 									</tr>
@@ -1059,10 +1130,14 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0" class="chat_lite_disabled">
 									<tr>
 										<td>
-											<label for="chat_background_color"><?php _e( 'Background', $this->translation_domain ); ?></label>
+											<label
+												for="chat_background_color"><?php _e( 'Background', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_background_color" name="chat_default[background_color]" value="<?php print $this->get_option( 'background_color', '#ffffff' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_background_color"
+											       name="chat_default[background_color]"
+											       value="<?php print $this->get_option( 'background_color', '#ffffff' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_background_color_panel"></div>
 										</td>
@@ -1071,10 +1146,13 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_date_color"><?php _e( 'Date', $this->translation_domain ); ?></label>
+											<label
+												for="chat_date_color"><?php _e( 'Date', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_date_color" name="chat_default[date_color]" value="<?php print $this->get_option( 'date_color', '#6699CC' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_date_color" name="chat_default[date_color]"
+											       value="<?php print $this->get_option( 'date_color', '#6699CC' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_date_color_panel"></div>
 										</td>
@@ -1083,10 +1161,13 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_name_color"><?php _e( 'Name', $this->translation_domain ); ?></label>
+											<label
+												for="chat_name_color"><?php _e( 'Name', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_name_color" name="chat_default[name_color]" value="<?php print $this->get_option( 'name_color', '#666666' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_name_color" name="chat_default[name_color]"
+											       value="<?php print $this->get_option( 'name_color', '#666666' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_name_color_panel"></div>
 										</td>
@@ -1095,10 +1176,14 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_moderator_name_color"><?php _e( 'Moderator Name', $this->translation_domain ); ?></label>
+											<label
+												for="chat_moderator_name_color"><?php _e( 'Moderator Name', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_moderator_name_color" name="chat_default[moderator_name_color]" value="<?php print $this->get_option( 'moderator_name_color', '#6699CC' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_moderator_name_color"
+											       name="chat_default[moderator_name_color]"
+											       value="<?php print $this->get_option( 'moderator_name_color', '#6699CC' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_moderator_name_color_panel"></div>
 										</td>
@@ -1107,10 +1192,13 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_text_color"><?php _e( 'Text', $this->translation_domain ); ?></label>
+											<label
+												for="chat_text_color"><?php _e( 'Text', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_text_color" name="chat_default[text_color]" value="<?php print $this->get_option( 'text_color', '#000000' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_text_color" name="chat_default[text_color]"
+											       value="<?php print $this->get_option( 'text_color', '#000000' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_text_color_panel"></div>
 										</td>
@@ -1125,7 +1213,8 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0">
 									<tr>
 										<td>
-											<label for="chat_font"><?php _e( 'Font', $this->translation_domain ); ?></label>
+											<label
+												for="chat_font"><?php _e( 'Font', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_font" name="chat_default[font]" class="font">
@@ -1139,10 +1228,12 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_font_size"><?php _e( 'Font size', $this->translation_domain ); ?></label>
+											<label
+												for="chat_font_size"><?php _e( 'Font size', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<select id="chat_font_size" name="chat_default[font_size]" class="font_size">
+											<select id="chat_font_size" name="chat_default[font_size]"
+											        class="font_size">
 												<?php for ( $font_size = 8; $font_size < 21; $font_size ++ ) { ?>
 									<option value="<?php print $font_size; ?>" <?php print ( $this->get_option( 'font_size', '12' ) == $font_size ) ? 'selected="selected"' : ''; ?>" ><?php print $font_size; ?></option>
 										<?php } ?>
@@ -1159,12 +1250,16 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0" class="chat_lite_disabled">
 									<tr>
 										<td>
-											<label for="chat_log_creation"><?php _e( 'Creation', $this->translation_domain ); ?></label>
+											<label
+												for="chat_log_creation"><?php _e( 'Creation', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<select id="chat_log_creation" name="chat_default[log_creation]" disabled="disabled">
-												<option value="enabled" <?php print ( $this->get_option( 'log_creation', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'log_creation', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+											<select id="chat_log_creation" name="chat_default[log_creation]"
+											        disabled="disabled">
+												<option
+													value="enabled" <?php print ( $this->get_option( 'log_creation', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'log_creation', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Log chat messages?", $this->translation_domain ); ?></td>
@@ -1172,12 +1267,16 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_log_display"><?php _e( 'Display', $this->translation_domain ); ?></label>
+											<label
+												for="chat_log_display"><?php _e( 'Display', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<select id="chat_log_display" name="chat_default[log_display]" disabled="disabled">
-												<option value="enabled" <?php print ( $this->get_option( 'log_display', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'log_display', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+											<select id="chat_log_display" name="chat_default[log_display]"
+											        disabled="disabled">
+												<option
+													value="enabled" <?php print ( $this->get_option( 'log_display', 'enabled' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'log_display', 'enabled' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display chat logs?", $this->translation_domain ); ?></td>
@@ -1191,20 +1290,36 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0">
 									<tr>
 										<td valign="top">
-											<label for="chat_login_options"><?php _e( 'Login options', $this->translation_domain ); ?></label>
+											<label
+												for="chat_login_options"><?php _e( 'Login options', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<label><input type="checkbox" id="chat_login_options_current_user" name="chat_default[login_options][]" class="chat_login_options" value="current_user" <?php print ( in_array( 'current_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Current user', $this->translation_domain ); ?>
+											<label><input type="checkbox" id="chat_login_options_current_user"
+											              name="chat_default[login_options][]"
+											              class="chat_login_options"
+											              value="current_user" <?php print ( in_array( 'current_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Current user', $this->translation_domain ); ?>
 											</label><br/>
 											<?php if ( is_multisite() ) { ?>
-												<label><input type="checkbox" id="chat_login_options_network_user" name="chat_default[login_options][]" class="chat_login_options" value="network_user" <?php print ( in_array( 'network_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Network user', $this->translation_domain ); ?>
+												<label><input type="checkbox" id="chat_login_options_network_user"
+												              name="chat_default[login_options][]"
+												              class="chat_login_options"
+												              value="network_user" <?php print ( in_array( 'network_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Network user', $this->translation_domain ); ?>
 												</label><br/>
 											<?php } ?>
-											<label><input type="checkbox" id="chat_login_options_public_user" name="chat_default[login_options][]" class="chat_login_options" value="public_user" <?php print ( in_array( 'public_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Public user', $this->translation_domain ); ?>
+											<label><input type="checkbox" id="chat_login_options_public_user"
+											              name="chat_default[login_options][]"
+											              class="chat_login_options"
+											              value="public_user" <?php print ( in_array( 'public_user', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Public user', $this->translation_domain ); ?>
 											</label><br/>
-										<span class="chat_lite_disabled"><label><input type="checkbox" id="chat_login_options_twitter" name="chat_default[login_options][]" class="chat_login_options" value="twitter" <?php print ( ! $this->is_twitter_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'twitter', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Twitter', $this->translation_domain ); ?>
+										<span class="chat_lite_disabled"><label><input type="checkbox"
+										                                               id="chat_login_options_twitter"
+										                                               name="chat_default[login_options][]"
+										                                               class="chat_login_options"
+										                                               value="twitter" <?php print ( ! $this->is_twitter_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'twitter', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Twitter', $this->translation_domain ); ?>
 											</label><br/>
-										<label><input type="checkbox" id="chat_login_options_facebook" name="chat_default[login_options][]" class="chat_login_options" value="facebook" <?php print ( ! $this->is_facebook_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'facebook', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Facebook', $this->translation_domain ); ?>
+										<label><input type="checkbox" id="chat_login_options_facebook"
+										              name="chat_default[login_options][]" class="chat_login_options"
+										              value="facebook" <?php print ( ! $this->is_facebook_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'facebook', $this->get_option( 'login_options', array( 'current_user' ) ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Facebook', $this->translation_domain ); ?>
 										</label><br/></span>
 										</td>
 										<td class="info"><?php _e( "Authentication methods users can use", $this->translation_domain ); ?></td>
@@ -1212,20 +1327,26 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr class="chat_lite_disabled">
 										<td valign="top">
-											<label for="chat_moderator_roles"><?php _e( 'Moderator roles', $this->translation_domain ); ?></label>
+											<label
+												for="chat_moderator_roles"><?php _e( 'Moderator roles', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<?php
 											foreach ( get_editable_roles() as $role => $details ) {
 												$name = translate_user_role( $details['name'] );
 												?>
-												<label><input type="checkbox" id="chat_moderator_roles_<?php print $role; ?>" name="chat_default[moderator_roles][]" class="chat_moderator_roles" value="<?php print $role; ?>" <?php print ( in_array( $role, $this->get_option( 'moderator_roles', array(
+												<label><input type="checkbox"
+												              id="chat_moderator_roles_<?php print $role; ?>"
+												              name="chat_default[moderator_roles][]"
+												              class="chat_moderator_roles"
+												              value="<?php print $role; ?>" <?php print ( in_array( $role, $this->get_option( 'moderator_roles', array(
 															'administrator',
 															'editor',
 															'author'
-														) ) ) > 0 ) ? 'checked="checked"' : ''; ?> disabled="disabled"/> <?php _e( $name, $this->translation_domain ); ?>
+														) ) ) > 0 ) ? 'checked="checked"' : ''; ?>
+												              disabled="disabled"/> <?php _e( $name, $this->translation_domain ); ?>
 												</label><br/>
-											<?php
+												<?php
 											}
 											?>
 										</td>
@@ -1248,12 +1369,15 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0">
 									<tr>
 										<td>
-											<label for="chat_site_1"><?php _e( 'Show', $this->translation_domain ); ?></label>
+											<label
+												for="chat_site_1"><?php _e( 'Show', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_site_1" name="chat_site[site]">
-												<option value="enabled" <?php print ( $this->get_option( 'site', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'site', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'site', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'site', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display bottom corner chat?", $this->translation_domain ); ?></td>
@@ -1268,12 +1392,15 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_sound_1"><?php _e( 'Sound', $this->translation_domain ); ?></label>
+											<label
+												for="chat_sound_1"><?php _e( 'Sound', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_sound_1" name="chat_site[sound]">
-												<option value="enabled" <?php print ( $this->get_option( 'sound', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'sound', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'sound', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'sound', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Play sound when a new message is received?", $this->translation_domain ); ?></td>
@@ -1281,12 +1408,15 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr class="chat_lite_disabled">
 										<td>
-											<label for="chat_avatar_1"><?php _e( 'Avatar', $this->translation_domain ); ?></label>
+											<label
+												for="chat_avatar_1"><?php _e( 'Avatar', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_avatar_1" name="chat_site[avatar]" disabled="disabled">
-												<option value="enabled" <?php print ( $this->get_option( 'avatar', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'avatar', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'avatar', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'avatar', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display the user's avatar with the message?", $this->translation_domain ); ?></td>
@@ -1294,14 +1424,17 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_emoticons_1"><?php _e( 'Emoticons', $this->translation_domain ); ?></label>
+											<label
+												for="chat_emoticons_1"><?php _e( 'Emoticons', $this->translation_domain ); ?></label>
 										</td>
 										<td><?php
 											$emoticons = $this->get_option( 'emoticons', 'enabled', 'site' );
 											?>
 											<select id="chat_emoticons_1" name="chat_site[emoticons]">
-												<option value="enabled" <?php echo ( $emoticons == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php echo ( $emoticons == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php echo ( $emoticons == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php echo ( $emoticons == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display emoticons bar?", $this->translation_domain ); ?></td>
@@ -1309,12 +1442,15 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_date_show_1"><?php _e( 'Show date', $this->translation_domain ); ?></label>
+											<label
+												for="chat_date_show_1"><?php _e( 'Show date', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_date_show_1" name="chat_site[date_show]">
-												<option value="enabled" <?php print ( $this->get_option( 'date_show', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'date_show', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'date_show', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'date_show', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display date the message was sent?", $this->translation_domain ); ?></td>
@@ -1322,12 +1458,15 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_time_show_1"><?php _e( 'Show time', $this->translation_domain ); ?></label>
+											<label
+												for="chat_time_show_1"><?php _e( 'Show time', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_time_show_1" name="chat_site[time_show]">
-												<option value="enabled" <?php print ( $this->get_option( 'time_show', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'time_show', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+												<option
+													value="enabled" <?php print ( $this->get_option( 'time_show', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'time_show', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display the time  the message was sent?", $this->translation_domain ); ?></td>
@@ -1335,12 +1474,17 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_width_1"><?php _e( 'Dimensions', $this->translation_domain ); ?></label>
+											<label
+												for="chat_width_1"><?php _e( 'Dimensions', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_width_1" name="chat_site[width]" value="<?php print $this->get_option( 'width', '', 'site' ); ?>" class="size" size="5"/>
+											<input type="text" id="chat_width_1" name="chat_site[width]"
+											       value="<?php print $this->get_option( 'width', '', 'site' ); ?>"
+											       class="size" size="5"/>
 											x
-											<input type="text" id="chat_height_1" name="chat_site[height]" value="<?php print $this->get_option( 'height', '', 'site' ); ?>" class="size" size="5"/>
+											<input type="text" id="chat_height_1" name="chat_site[height]"
+											       value="<?php print $this->get_option( 'height', '', 'site' ); ?>"
+											       class="size" size="5"/>
 										</td>
 										<td class="info"><?php _e( "Dimensions of the chat box", $this->translation_domain ); ?></td>
 									</tr>
@@ -1353,10 +1497,13 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0" class="chat_lite_disabled">
 									<tr>
 										<td>
-											<label for="chat_border_color_1"><?php _e( 'Border', $this->translation_domain ); ?></label>
+											<label
+												for="chat_border_color_1"><?php _e( 'Border', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id=chat_border_color_1 name="chat_site[border_color]" value="<?php print $this->get_option( 'border_color', '#4b96e2', 'site' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id=chat_border_color_1 name="chat_site[border_color]"
+											       value="<?php print $this->get_option( 'border_color', '#4b96e2', 'site' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_border_color_1_panel"></div>
 										</td>
@@ -1365,10 +1512,14 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_background_color_1"><?php _e( 'Background', $this->translation_domain ); ?></label>
+											<label
+												for="chat_background_color_1"><?php _e( 'Background', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_background_color_1" name="chat_site[background_color]" value="<?php print $this->get_option( 'background_color', '#ffffff', 'site' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_background_color_1"
+											       name="chat_site[background_color]"
+											       value="<?php print $this->get_option( 'background_color', '#ffffff', 'site' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_background_color_1_panel"></div>
 										</td>
@@ -1377,10 +1528,13 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_date_color"><?php _e( 'Date', $this->translation_domain ); ?></label>
+											<label
+												for="chat_date_color"><?php _e( 'Date', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_date_color_1" name="chat_site[date_color]" value="<?php print $this->get_option( 'date_color', '#6699CC', 'site' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_date_color_1" name="chat_site[date_color]"
+											       value="<?php print $this->get_option( 'date_color', '#6699CC', 'site' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_date_color_1_panel"></div>
 										</td>
@@ -1389,10 +1543,13 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_name_color"><?php _e( 'Name', $this->translation_domain ); ?></label>
+											<label
+												for="chat_name_color"><?php _e( 'Name', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_name_color_1" name="chat_site[name_color]" value="<?php print $this->get_option( 'name_color', '#666666', 'site' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_name_color_1" name="chat_site[name_color]"
+											       value="<?php print $this->get_option( 'name_color', '#666666', 'site' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_name_color_1_panel"></div>
 										</td>
@@ -1401,10 +1558,14 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_moderator_name_color"><?php _e( 'Moderator Name', $this->translation_domain ); ?></label>
+											<label
+												for="chat_moderator_name_color"><?php _e( 'Moderator Name', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_moderator_name_color_1" name="chat_site[moderator_name_color]" value="<?php print $this->get_option( 'moderator_name_color', '#6699CC', 'site' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_moderator_name_color_1"
+											       name="chat_site[moderator_name_color]"
+											       value="<?php print $this->get_option( 'moderator_name_color', '#6699CC', 'site' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_moderator_name_color_1_panel"></div>
 										</td>
@@ -1413,10 +1574,13 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_text_color"><?php _e( 'Text', $this->translation_domain ); ?></label>
+											<label
+												for="chat_text_color"><?php _e( 'Text', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<input type="text" id="chat_text_color_1" name="chat_site[text_color]" value="<?php print $this->get_option( 'text_color', '#000000', 'site' ); ?>" class="color" size="7" disabled="disabled"/>
+											<input type="text" id="chat_text_color_1" name="chat_site[text_color]"
+											       value="<?php print $this->get_option( 'text_color', '#000000', 'site' ); ?>"
+											       class="color" size="7" disabled="disabled"/>
 
 											<div class="color" id="chat_text_color_1_panel"></div>
 										</td>
@@ -1431,7 +1595,8 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0">
 									<tr>
 										<td>
-											<label for="chat_font_1"><?php _e( 'Font', $this->translation_domain ); ?></label>
+											<label
+												for="chat_font_1"><?php _e( 'Font', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<select id="chat_font_1" name="chat_site[font]" class="font">
@@ -1445,7 +1610,8 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_font_size_1"><?php _e( 'Font size', $this->translation_domain ); ?></label>
+											<label
+												for="chat_font_size_1"><?php _e( 'Font size', $this->translation_domain ); ?></label>
 										</td>
 										<td><select id="chat_font_size_1" name="chat_site[font_size]" class="font_size">
 												<?php for ( $font_size = 8; $font_size < 21; $font_size ++ ) { ?>
@@ -1464,12 +1630,16 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0" class="chat_lite_disabled">
 									<tr>
 										<td>
-											<label for="chat_log_creation_1"><?php _e( 'Creation', $this->translation_domain ); ?></label>
+											<label
+												for="chat_log_creation_1"><?php _e( 'Creation', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<select id="chat_log_creation_1" name="chat_site[log_creation]" disabled="disabled">
-												<option value="enabled" <?php print ( $this->get_option( 'log_creation', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'log_creation', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+											<select id="chat_log_creation_1" name="chat_site[log_creation]"
+											        disabled="disabled">
+												<option
+													value="enabled" <?php print ( $this->get_option( 'log_creation', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'log_creation', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Log chat messages?", $this->translation_domain ); ?></td>
@@ -1477,12 +1647,16 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr>
 										<td>
-											<label for="chat_log_display_1"><?php _e( 'Display', $this->translation_domain ); ?></label>
+											<label
+												for="chat_log_display_1"><?php _e( 'Display', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<select id="chat_log_display_1" name="chat_site[log_display]" disabled="disabled">
-												<option value="enabled" <?php print ( $this->get_option( 'log_display', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
-												<option value="disabled" <?php print ( $this->get_option( 'log_display', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
+											<select id="chat_log_display_1" name="chat_site[log_display]"
+											        disabled="disabled">
+												<option
+													value="enabled" <?php print ( $this->get_option( 'log_display', 'enabled', 'site' ) == 'enabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Enabled', $this->translation_domain ); ?></option>
+												<option
+													value="disabled" <?php print ( $this->get_option( 'log_display', 'enabled', 'site' ) == 'disabled' ) ? 'selected="selected"' : ''; ?>><?php _e( 'Disabled', $this->translation_domain ); ?></option>
 											</select>
 										</td>
 										<td class="info"><?php _e( "Display chat logs?", $this->translation_domain ); ?></td>
@@ -1496,20 +1670,36 @@ if ( ! class_exists( 'Chat' ) ) {
 								<table border="0" cellpadding="4" cellspacing="0">
 									<tr>
 										<td valign="top">
-											<label for="chat_login_options_1"><?php _e( 'Login options', $this->translation_domain ); ?></label>
+											<label
+												for="chat_login_options_1"><?php _e( 'Login options', $this->translation_domain ); ?></label>
 										</td>
 										<td>
-											<label><input type="checkbox" id="chat_login_options_1_current_user" name="chat_site[login_options][]" class="chat_login_options" value="current_user" <?php print ( in_array( 'current_user', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Current user', $this->translation_domain ); ?>
+											<label><input type="checkbox" id="chat_login_options_1_current_user"
+											              name="chat_site[login_options][]" class="chat_login_options"
+											              value="current_user" <?php print ( in_array( 'current_user', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Current user', $this->translation_domain ); ?>
 											</label><br/>
 											<?php if ( is_multisite() ) { ?>
-												<label><input type="checkbox" id="chat_login_options_1_network_user" name="chat_site[login_options][]" class="chat_login_options" value="network_user" <?php print ( in_array( 'network_user', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Network user', $this->translation_domain ); ?>
+												<label><input type="checkbox" id="chat_login_options_1_network_user"
+												              name="chat_site[login_options][]"
+												              class="chat_login_options"
+												              value="network_user" <?php print ( in_array( 'network_user', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Network user', $this->translation_domain ); ?>
 												</label><br/>
 											<?php } ?>
-											<label><input type="checkbox" id="chat_login_options_1_public_user" name="chat_site[login_options][]" class="chat_login_options" value="public_user" <?php print ( in_array( 'public_user', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Public user', $this->translation_domain ); ?>
+											<label><input type="checkbox" id="chat_login_options_1_public_user"
+											              name="chat_site[login_options][]" class="chat_login_options"
+											              value="public_user" <?php print ( in_array( 'public_user', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Public user', $this->translation_domain ); ?>
 											</label><br/>
-											<label class="chat_lite_disabled"><input type="checkbox" id="chat_login_options_1_twitter" name="chat_site[login_options][]" class="chat_login_options" value="twitter" <?php print ( ! $this->is_twitter_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'twitter', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Twitter', $this->translation_domain ); ?>
+											<label class="chat_lite_disabled"><input type="checkbox"
+											                                         id="chat_login_options_1_twitter"
+											                                         name="chat_site[login_options][]"
+											                                         class="chat_login_options"
+											                                         value="twitter" <?php print ( ! $this->is_twitter_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'twitter', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Twitter', $this->translation_domain ); ?>
 											</label><br/>
-											<label class="chat_lite_disabled"><input type="checkbox" id="chat_login_options_1_facebook" name="chat_site[login_options][]" class="chat_login_options" value="facebook" <?php print ( ! $this->is_facebook_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'facebook', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Facebook', $this->translation_domain ); ?>
+											<label class="chat_lite_disabled"><input type="checkbox"
+											                                         id="chat_login_options_1_facebook"
+											                                         name="chat_site[login_options][]"
+											                                         class="chat_login_options"
+											                                         value="facebook" <?php print ( ! $this->is_facebook_setup() ) ? 'disabled="disabled"' : ''; ?> <?php print ( in_array( 'facebook', $this->get_option( 'login_options', array( 'current_user' ), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> /> <?php _e( 'Facebook', $this->translation_domain ); ?>
 											</label><br/>
 										</td>
 										<td class="info"><?php _e( "Authentication methods users can use", $this->translation_domain ); ?></td>
@@ -1517,20 +1707,26 @@ if ( ! class_exists( 'Chat' ) ) {
 
 									<tr class="chat_lite_disabled">
 										<td valign="top">
-											<label for="chat_moderator_roles_1"><?php _e( 'Moderator roles', $this->translation_domain ); ?></label>
+											<label
+												for="chat_moderator_roles_1"><?php _e( 'Moderator roles', $this->translation_domain ); ?></label>
 										</td>
 										<td>
 											<?php
 											foreach ( get_editable_roles() as $role => $details ) {
 												$name = translate_user_role( $details['name'] );
 												?>
-												<label><input type="checkbox" id="chat_moderator_roles_1_<?php print $role; ?>" name="chat_site[moderator_roles][]" class="chat_moderator_roles" value="<?php print $role; ?>" <?php print ( in_array( $role, $this->get_option( 'moderator_roles', array(
+												<label><input type="checkbox"
+												              id="chat_moderator_roles_1_<?php print $role; ?>"
+												              name="chat_site[moderator_roles][]"
+												              class="chat_moderator_roles"
+												              value="<?php print $role; ?>" <?php print ( in_array( $role, $this->get_option( 'moderator_roles', array(
 															'administrator',
 															'editor',
 															'author'
-														), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?> disabled="disabled"/> <?php _e( $name, $this->translation_domain ); ?>
+														), 'site' ) ) > 0 ) ? 'checked="checked"' : ''; ?>
+												              disabled="disabled"/> <?php _e( $name, $this->translation_domain ); ?>
 												</label><br/>
-											<?php
+												<?php
 											}
 											?>
 										</td>
@@ -1549,10 +1745,14 @@ if ( ! class_exists( 'Chat' ) ) {
 								</tr>
 								<tr class="chat_lite_disabled">
 									<td>
-										<label for="chat_twitter_api_key"><?php _e( '@Anywhere API key', $this->translation_domain ); ?></label>
+										<label
+											for="chat_twitter_api_key"><?php _e( '@Anywhere API key', $this->translation_domain ); ?></label>
 									</td>
 									<td>
-										<input type="text" id="chat_twitter_api_key" name="chat_default[twitter_api_key]" value="<?php print $this->get_option( 'twitter_api_key', '' ); ?>" class="" size="40" disabled="disabled"/>
+										<input type="text" id="chat_twitter_api_key"
+										       name="chat_default[twitter_api_key]"
+										       value="<?php print $this->get_option( 'twitter_api_key', '' ); ?>"
+										       class="" size="40" disabled="disabled"/>
 									</td>
 									<td class="info">
 										<ol>
@@ -1579,10 +1779,14 @@ if ( ! class_exists( 'Chat' ) ) {
 								</tr>
 								<tr class="chat_lite_disabled">
 									<td>
-										<label for="chat_facebook_application_id"><?php _e( 'Application id', $this->translation_domain ); ?></label>
+										<label
+											for="chat_facebook_application_id"><?php _e( 'Application id', $this->translation_domain ); ?></label>
 									</td>
 									<td>
-										<input type="text" id="chat_facebook_application_id" name="chat_default[facebook_application_id]" value="<?php print $this->get_option( 'facebook_application_id', '' ); ?>" class="" size="40" disabled="disabled"/>
+										<input type="text" id="chat_facebook_application_id"
+										       name="chat_default[facebook_application_id]"
+										       value="<?php print $this->get_option( 'facebook_application_id', '' ); ?>"
+										       class="" size="40" disabled="disabled"/>
 									</td>
 									<td rowspan="2" class="info">
 										<ol>
@@ -1598,10 +1802,14 @@ if ( ! class_exists( 'Chat' ) ) {
 
 								<tr class="chat_lite_disabled">
 									<td>
-										<label for="chat_facebook_application_secret"><?php _e( 'Application secret', $this->translation_domain ); ?></label>
+										<label
+											for="chat_facebook_application_secret"><?php _e( 'Application secret', $this->translation_domain ); ?></label>
 									</td>
 									<td>
-										<input type="text" id="chat_facebook_application_secret" name="chat_default[facebook_application_secret]" value="<?php print $this->get_option( 'facebook_application_secret', '' ); ?>" class="" size="40" disabled="disabled"/>
+										<input type="text" id="chat_facebook_application_secret"
+										       name="chat_default[facebook_application_secret]"
+										       value="<?php print $this->get_option( 'facebook_application_secret', '' ); ?>"
+										       class="" size="40" disabled="disabled"/>
 									</td>
 								</tr>
 							</table>
@@ -1616,10 +1824,13 @@ if ( ! class_exists( 'Chat' ) ) {
 								</tr>
 								<tr class="chat_lite_disabled">
 									<td>
-										<label for="chat_interval"><?php _e( 'Interval', $this->translation_domain ); ?></label>
+										<label
+											for="chat_interval"><?php _e( 'Interval', $this->translation_domain ); ?></label>
 									</td>
 									<td>
-										<input type="text" id="chat_interval" name="chat_default[interval]" value="<?php print $this->get_option( 'interval', 2 ); ?>" class="" size="2" disabled="disabled"/>
+										<input type="text" id="chat_interval" name="chat_default[interval]"
+										       value="<?php print $this->get_option( 'interval', 2 ); ?>" class=""
+										       size="2" disabled="disabled"/>
 									</td>
 									<td class="info">
 										Refresh interval in seconds
@@ -1632,10 +1843,10 @@ if ( ! class_exists( 'Chat' ) ) {
 					<input type="hidden" name="page_options" value="chat_default,chat_site"/>
 
 					<p class="submit"><input type="submit" name="Submit"
-							value="<?php _e( 'Save Changes', $this->translation_domain ) ?>"/></p>
+					                         value="<?php _e( 'Save Changes', $this->translation_domain ) ?>"/></p>
 				</form>
 			</div>
-		<?php
+			<?php
 		}
 
 		/**
@@ -1686,12 +1897,12 @@ if ( ! class_exists( 'Chat' ) ) {
 				$chat_localized['name']    = $current_user->display_name;
 				$chat_localized['vip']     = $vip;
 				$chat_localized['sounds']  = $chat_sounds;
-				$chat_localized['post_id'] = $post->ID;
+				$chat_localized['post_id'] = ! empty( $post ) ? $post->ID : '';
 			} else {
 				$chat_localized['name']    = "";
 				$chat_localized['vip']     = false;
 				$chat_localized['sounds']  = "enabled";
-				$chat_localized['post_id'] = !empty( $post->ID ) ? $post->ID : '';
+				$chat_localized['post_id'] = ! empty( $post->ID ) ? $post->ID : '';
 			}
 
 			if ( $this->get_option( 'twitter_api_key' ) != '' ) {
@@ -1773,7 +1984,7 @@ if ( ! class_exists( 'Chat' ) ) {
 			} else {
 				$uid = $current_user->ID;
 			}
-			$chat_sounds = !empty( $_POST['chat_sounds'] ) ? sanitize_key( $_POST['chat_sounds'] ) : '';
+			$chat_sounds = ! empty( $_POST['chat_sounds'] ) ? sanitize_key( $_POST['chat_sounds'] ) : '';
 			if ( ! empty( $chat_sounds ) ) {
 				update_user_meta( $uid, 'chat_sounds', $chat_sounds );
 			}
@@ -1814,7 +2025,7 @@ if ( ! class_exists( 'Chat' ) ) {
 					</td>
 				</tr>
 			</table>
-		<?php
+			<?php
 		}
 
 		/**
@@ -2214,7 +2425,7 @@ if ( ! class_exists( 'Chat' ) ) {
 
 			$log = array();
 
-			$chat_id  = sanitize_key( $_POST['cid'] );
+			$chat_id = sanitize_key( $_POST['cid'] );
 
 			switch ( $function ) {
 				case 'update':
@@ -2256,27 +2467,31 @@ if ( ! class_exists( 'Chat' ) ) {
 								if ( preg_match( '/@/', $row->avatar ) ) {
 									$avatar = get_avatar( $row->avatar, 50, null, $row->name );
 								} else {
-									$avatar = "<img alt='{$row->name}' src='{$row->avatar}' class='avatar photo' />";
+									if( !empty( $row->avatar ) ) {
+										$avatar = "<img alt='{$row->name}' src='{$row->avatar}' class='avatar photo' />";
+									}else{
+										$avatar = get_avatar('', 50, null, '');
+									}
 								}
 								$prepend .= "$avatar ";
 							}
 
 							if ( $_POST['date_show'] == 'enabled' ) {
-								$prepend .= ' <span class="date" style="background: ' . sanitize_hex_color( $_POST['date_color'] ) . ';">' . date_i18n( get_option( 'date_format' ), strtotime( $row->timestamp ) + get_option( 'gmt_offset' ) * 3600, false ) . '</span>';
+								$prepend .= ' <span class="date" style="background: ' . wc_sanitize_hex_color( $_POST['date_color'] ) . ';">' . date_i18n( get_option( 'date_format' ), strtotime( $row->timestamp ) + get_option( 'gmt_offset' ) * 3600, false ) . '</span>';
 							}
 							if ( $_POST['time_show'] == 'enabled' ) {
-								$prepend .= ' <span class="time" style="background: ' . sanitize_hex_color( $_POST['date_color'] ) . ';">' . date_i18n( get_option( 'time_format' ), strtotime( $row->timestamp ) + get_option( 'gmt_offset' ) * 3600, false ) . '</span>';
+								$prepend .= ' <span class="time" style="background: ' . wc_sanitize_hex_color( $_POST['date_color'] ) . ';">' . date_i18n( get_option( 'time_format' ), strtotime( $row->timestamp ) + get_option( 'gmt_offset' ) * 3600, false ) . '</span>';
 							}
 
 							if ( $row->moderator == 'yes' ) {
-								$name_color = sanitize_hex_color( $_POST['moderator_name_color'] );
+								$name_color = wc_sanitize_hex_color( $_POST['moderator_name_color'] );
 							} else {
-								$name_color = sanitize_hex_color($_POST['name_color']);
+								$name_color = wc_sanitize_hex_color( $_POST['name_color'] );
 							}
 
 							$prepend .= ' <span class="name" style="background: ' . $name_color . ';">' . stripslashes( html_entity_decode( $row->name ) ) . '</span>';
 
-							$text[ $row->id ] = " <div id='row-" . strtotime( $row->timestamp ) . "' class='row'>{$prepend}<span class='message' style='color: " . sanitize_hex_color( $_POST['text_color'] ) . "'>" . convert_smilies( $message ) . "</span><div class='chat-clear'></div></div>";
+							$text[ $row->id ] = " <div id='row-" . strtotime( $row->timestamp ) . "' class='row'>{$prepend}<span class='message' style='color: " . wc_sanitize_hex_color( $_POST['text_color'] ) . "'>" . convert_smilies( $message ) . "</span><div class='chat-clear'></div></div>";
 							$last_check       = $row->timestamp;
 						}
 
@@ -2602,14 +2817,16 @@ if ( ! class_exists( 'Chat' ) ) {
 		}
 	}
 }
-if( !function_exists('sanitize_hex_color')) {
-	function sanitize_hex_color( $color ) {
-		if ( '' === $color )
+if ( ! function_exists( 'wc_sanitize_hex_color' ) ) {
+	function wc_sanitize_hex_color( $color ) {
+		if ( '' === $color ) {
 			return '';
+		}
 
 		// 3 or 6 hex digits, or the empty string.
-		if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) )
+		if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
 			return $color;
+		}
 
 		return null;
 	}
