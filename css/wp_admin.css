@@ -1,0 +1,244 @@
+@CHARSET "UTF-8";
+/**
+ * Chat WordPress, WordPress Multisite, BuddyPress plugin
+ * 
+ * wp-admin styles (admin dashboard)
+ *
+ * @author	S H Mohanjith <moha@mohanjith.net>
+ * @since	1.0.1
+ */
+
+/* Component containers
+----------------------------------*/
+.ui-widget { }
+.ui-widget .ui-widget { }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { }
+.ui-widget-content { z-index: 1; }
+.ui-widget-header { border: 1px solid #aaaaaa; background: #cccccc 50% 50% repeat-x; color: #222222; font-weight: bold; font-size: 1.1em; }
+.ui-widget-header a { color: #222222; }
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #d3d3d3; background: #e6e6e6 50% 50% repeat-x; font-weight: normal; color: #555555; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555; text-decoration: none; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #999999; background: #dadada 50% 50% repeat-x; font-weight: normal; color: #212121; }
+.ui-state-hover a, .ui-state-hover a:hover { color: #212121; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #aaaaaa; background: #ffffff 50% 50% repeat-x; font-weight: normal; color: #212121; }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #212121; text-decoration: none; }
+.ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #fcefa1; background: #fbf9ee 50% 50% repeat-x; color: #363636; }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec 50% 50% repeat-x; color: #cd0a0a; }
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #cd0a0a; }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #cd0a0a; }
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
+
+/* Tabs */
+.ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
+.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
+.ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
+.ui-tabs .ui-tabs-hide { display: none !important; }
+
+.ui-tabs {
+        padding: .2em;
+        zoom: 1;
+}
+
+.ui-tabs .ui-tabs-nav {
+        list-style: none;
+        position: relative;
+        padding: .2em .2em 0;
+}
+
+.ui-tabs .ui-tabs-nav li {
+        position: relative;
+        float: left;
+        margin: 0 .2em -1px 0;
+        padding: 0;
+        -moz-border-radius-topleft: 2px;
+        -moz-border-radius-topright: 2px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+        float: left;
+        text-decoration: none;
+        padding: .5em 1em;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+        padding-bottom: 1px;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a,.ui-tabs .ui-tabs-nav li.ui-state-disabled a,.ui-tabs .ui-tabs-nav li.ui-state-processing a
+        {
+        cursor: text;
+}
+
+.ui-tabs .ui-tabs-nav li a,.ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a
+        {
+        cursor: pointer;
+}
+
+/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel {
+        padding: 1em 1.4em;
+        display: block;
+        background: none;
+}
+
+.ui-tabs .ui-tabs-hide {
+        display: none !important;
+}
+
+.ui-widget-header {
+        background: none;
+        border: none;
+}
+
+.ui-widget-content {
+}
+
+.ui-tabs-panel.ui-widget-content {
+        border: 1px solid #DDDDDD;
+        -moz-border-radius: 5px;
+        -moz-border-radius-topleft: 2px;
+        -moz-border-radius-topright: 2px;
+        background-color: #FDFDFD;
+        padding-bottom: 10px;
+        margin-top: 2.1em;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
+        background-color: #FDFDFD;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+        outline: none;
+        padding:0.2em 1em;
+}
+
+/** Color picker **/
+.farbtastic {
+  position: relative;
+}
+.farbtastic * {
+  position: absolute;
+  cursor: crosshair;
+}
+.farbtastic, .farbtastic .wheel {
+  width: 195px;
+  height: 195px;
+}
+.farbtastic .color, .farbtastic .overlay {
+  top: 47px;
+  left: 47px;
+  width: 101px;
+  height: 101px;
+}
+.farbtastic .wheel {
+  background: url(../images/wheel.png) no-repeat;
+  width: 195px;
+  height: 195px;
+}
+.farbtastic .overlay {
+  background: url(../images/mask.png) no-repeat;
+}
+.farbtastic .marker {
+  width: 17px;
+  height: 17px;
+  margin: -8px 0 0 -8px;
+  overflow: hidden; 
+  background: url(../images/marker.png) no-repeat;
+}
+
+fieldset {
+	border: 1px solid #DFDFDF;
+	padding: 3px 5px;
+	width: 500px;
+}
+
+fieldset legend {
+	padding: 0px 5px;
+}
+
+fieldset table td, .chat_auth_panel table td, .chat_advanced_panel table td {
+	padding: 2px 5px;
+	vertical-align: top;
+}
+
+#wpcontent select.chat_login_options {
+	height: 70px;
+}
+
+div.color {
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid #DFDFDF;
+	-moz-border-radius:4px 4px 4px 4px;
+}
+
+td.instructions {
+	color: #777;
+}
+
+td.instructions ul, td.instructions p {
+	font-size: 0.9em;
+}
+
+.chat_auth_panel ul {
+	margin-left: 10px;	
+}
+	
+.chat_auth_panel li {
+	margin-left: 10px;
+	margin-bottom: 2px;
+}
+
+td.info {
+	vertical-align: top;
+	color: #777;
+	border-left: 1px dotted #ccc;
+}
+
+p.info {
+	vertical-align: top;
+	color: #777;
+}
+
+.chat_lite_disabled {
+	opacity: 0.2;
+	-moz-opacity:.20;
+}
+
+.chat_lite_disabled_tab {
+	opacity: 0.2;
+	-moz-opacity:.20;
+}
+
+div.blockMsg {
+	width:  100%;
+	top:    0%;
+	left:   0%;
+	text-align: center;
+	background-color: #ddd;
+	border: 1px solid #000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; 
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); 
+	-moz-opacity:.70;
+	opacity:.70;
+	padding: 15px;
+	color: #fff;
+}
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../../../../wp-includes/js/tinymce/tiny_mce_popup.js?ver=327-1235"></script>
+<script type="text/javascript" src="../../../../wp-includes/js/tinymce/utils/mctabs.js?ver=327-1235"></script>
+<script type="text/javascript" src="../../../../wp-includes/js/tinymce/utils/validate.js?ver=327-1235"></script>
+
+<script type="text/javascript" src="../../../../wp-includes/js/tinymce/utils/form_utils.js?ver=327-1235"></script>
+<script type="text/javascript" src="../../../../wp-includes/js/tinymce/utils/editable_selects.js?ver=327-1235"></script>
+
+<title>{#chat_dlg.title}</title>
+</head>
+<body style="display: none">
+	<form onsubmit="insertChat();return false;" action="#">
+		<div class="tabs">
+			<ul>
+				<li id="general_tab" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');generatePreview();" onmousedown="return false;">{#chat_dlg.general}</a></span></li>
+				<li id="appearance_tab"><span><a href="javascript:mcTabs.displayTab('appearance_tab','appearance_panel');" onmousedown="return false;">{#chat_dlg.appearance}</a></span></li>
+				<li id="logs_tab"><span><a href="javascript:mcTabs.displayTab('logs_tab','logs_panel');" onmousedown="return false;">{#chat_dlg.logs}</a></span></li>
+				<li id="authentication_tab"><span><a href="javascript:mcTabs.displayTab('authentication_tab','authentication_panel');" onmousedown="return false;">{#chat_dlg.authentication}</a></span></li>
+			</ul>
+		</div>
+
+		<div class="panel_wrapper">
+			<div id="general_panel" class="panel current">
+				<fieldset>
+					<legend>{#chat_dlg.general}</legend>
+
+					<table border="0" cellpadding="4" cellspacing="0">
+						<tr>
+							<td><label for="chat_sound">{#chat_dlg.sound}</label></td>
+							<td>
+								<select id="chat_sound" name="chat_sound" >
+									<option value="enabled">{#chat_dlg.enabled}</option>
+									<option value="disabled">{#chat_dlg.disabled}</option>
+								</select>
+							</td>
+						</tr>
+						
+						
+						<tr>
+							<td><label for="chat_avatar">{#chat_dlg.avatar}</label></td>
+							<td>
+								<select id="chat_avatar" name="chat_avatar" >
+									<option value="enabled">{#chat_dlg.enabled}</option>
+									<option value="disabled">{#chat_dlg.disabled}</option>
+								</select>
+							</td>
+						</tr>
+						
+						<tr>
+							<td><label for="chat_emoticons">{#chat_dlg.emoticons}</label></td>
+							<td>
+								<select id="chat_emoticons" name="chat_emoticons" >
+									<option value="enabled">{#chat_dlg.enabled}</option>
+									<option value="disabled">{#chat_dlg.disabled}</option>
+								</select>
+							</td>
+						</tr>
+
+						<tr>
+							<td><label for="chat_width">{#chat_dlg.dimensions}</label></td>
+							<td>
+								<input type="text" id="chat_width" name="chat_width" value="" class="size" /> x <input type="text" id="chat_height" name="chat_height" value="" class="size" />
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+				
+			<div id="appearance_panel" class="panel">
+				<fieldset>
+					<legend>{#chat_dlg.colors}</legend>
+
+					<table border="0" cellpadding="4" cellspacing="0">
+						<tr>
+							<td><label for="chat_background_color">{#chat_dlg.background}</label></td>
+							<td>
+								<input type="text" id="chat_background_color" name="chat_background_color" value="" class="color" />
+							</td>
+						</tr>
+							
+						<tr>
+							<td><label for="chat_date_color">{#chat_dlg.date}</label></td>
+							<td>
+								<input type="text" id="chat_date_color" name="chat_date_color" value="" class="color" />
+							</td>
+						</tr>
+							
+						<tr>
+							<td><label for="chat_name_color">{#chat_dlg.name}</label></td>
+							<td>
+								<input type="text" id="chat_name_color" name="chat_name_color" value="" class="color" />
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+				
+				<fieldset>
+					<legend>{#chat_dlg.fonts}</legend>
+
+					<table border="0" cellpadding="4" cellspacing="0">
+
+						<tr>
+							<td><label for="chat_font">{#chat_dlg.font}</label></td>
+							<td>
+								<input type="text" id="chat_font" name="chat_font" value="" class="font" />
+							</td>
+						</tr>
+						
+						<tr>
+							<td><label for="chat_font_size">{#chat_dlg.font_size}</label></td>
+							<td>
+								<input type="text" id="chat_font_size" name="chat_font_size" value="" class="font_size" />
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+			
+			<div id="logs_panel" class="panel">
+				<fieldset>
+					<legend>{#chat_dlg.logs}</legend>
+					
+					<table border="0" cellpadding="4" cellspacing="0">
+						<tr>
+							<td><label for="chat_log_creation">{#chat_dlg.creation}</label></td>
+							<td>
+								<select id="chat_log_creation" name="chat_log_creation" >
+									<option value="enabled">{#chat_dlg.enabled}</option>
+									<option value="disabled">{#chat_dlg.disabled}</option>
+								</select>
+							</td>
+						</tr>
+						
+						<tr>
+							<td><label for="chat_log_display">{#chat_dlg.display}</label></td>
+							<td>
+								<select id="chat_log_display" name="chat_log_display" >
+									<option value="enabled">{#chat_dlg.enabled}</option>
+									<option value="disabled">{#chat_dlg.disabled}</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+		
+			<div id="authentication_panel" class="panel">
+				<fieldset>
+					<legend>{#chat_dlg.authentication}</legend>
+					
+					<table border="0" cellpadding="4" cellspacing="0">
+						<tr>
+							<td valign="top"><label for="chat_login_options">{#chat_dlg.login_options}</label></td>
+							<td>
+								<select id="chat_login_options" name="chat_login_options" size="5" >
+									<option value="current_user">{#chat_dlg.current_user}</option>
+									<option value="network_user">{#chat_dlg.network_user}</option>
+									<option value="public_user">{#chat_dlg.public_user}</option>
+									<option value="facebook">{#chat_dlg.facebook}</option>
+									<option value="twitter">{#chat_dlg.twitter}</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="mceActionPanel">
+			<div style="float: left">
+				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			</div>
+
+			<div style="float: right">
+				<input type="submit" id="insert" name="insert" value="{#insert}" />
+
+			</div>
+		</div>
+	</form>
+</body>
+</html>
