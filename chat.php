@@ -2376,7 +2376,7 @@ if ( ! class_exists( 'Chat' ) ) {
 		}
 
 		/**
-		 * @see        http://codex.wordpress.org/TinyMCE_Custom_Buttons
+		 * @see http://codex.wordpress.org/TinyMCE_Custom_Buttons
 		 */
 		function tinymce_register_button( $buttons ) {
 			array_push( $buttons, "separator", "chat" );
@@ -2467,10 +2467,10 @@ if ( ! class_exists( 'Chat' ) ) {
 								if ( preg_match( '/@/', $row->avatar ) ) {
 									$avatar = get_avatar( $row->avatar, 50, null, $row->name );
 								} else {
-									if( !empty( $row->avatar ) ) {
+									if ( ! empty( $row->avatar ) ) {
 										$avatar = "<img alt='{$row->name}' src='{$row->avatar}' class='avatar photo' />";
-									}else{
-										$avatar = get_avatar('', 50, null, '');
+									} else {
+										$avatar = get_avatar( '', 50, null, '' );
 									}
 								}
 								$prepend .= "$avatar ";
